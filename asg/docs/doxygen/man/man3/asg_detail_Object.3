@@ -1,0 +1,54 @@
+.TH "asg::detail::Object" 3 "Thu Apr 7 2022" "ANARI Scene Graph" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+asg::detail::Object
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBasg::detail::Geometry\fP, \fBasg::detail::Material\fP, \fBasg::detail::Surface\fP, and \fBasg::detail::Transform\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBoperator ASGObject\fP ()"
+.br
+.ti -1c
+.RI "void \fBrelease\fP ()"
+.br
+.ti -1c
+.RI "void \fBretain\fP ()"
+.br
+.ti -1c
+.RI "template<typename T > void \fBaddChild\fP (const std::shared_ptr< T > &child)"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBObject\fP > \fBgetChild\fP (int childID)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static std::shared_ptr< \fBObject\fP > \fBcreate\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBObject\fP (ASGObject obj)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "ASGObject \fBhandle\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ANARI Scene Graph from the source code\&.

@@ -22,7 +22,11 @@ namespace generic {
 
     int Device::deviceImplements(const char* extensions)
     {
-        return 0;
+        std::string extension = extensions;
+        if (extension == ANARI_KHR_FRAME_COMPLETION_CALLBACK)
+            return 1;
+        else
+            return 0;
     }
 
     void Device::deviceSetParameter(const char* id,
@@ -37,6 +41,9 @@ namespace generic {
 
     void Device::deviceCommit()
     {
+        m_numThreads =
+            getParam<int>("numThreads", std::thread::hardware_concurrency() - 1);
+        m_numThreads = std::max(m_numThreads, 1);
     }
 
     void Device::deviceRetain()
@@ -261,16 +268,35 @@ namespace generic {
     {
         Frame* f = (Frame*)GetResource(frame);
         Renderer* rend = (Renderer*)GetResource(f->renderer);
+        auto device_handle = this_device();
 
-        if (rend != nullptr)
-            rend->renderFrame(f);
+        f->renewFuture();
+        auto future = f->future();
+        std::thread([=]() {
+            if (rend != nullptr){
+                auto start = std::chrono::steady_clock::now();
+                rend->renderFrame(f);
+                auto end = std::chrono::steady_clock::now();
+                f->invokeContinuation(device_handle);
+                f->setDuration(std::chrono::duration<float>(end - start).count());
+                future->markComplete();
+            }
+        }).detach();
+   
     }
 
     int Device::frameReady(ANARIFrame frame,
                            ANARIWaitMask m)
     {
         Frame* f = (Frame*)GetResource(frame);
-        return f->wait(m);
+        if (!f->futureIsValid())
+            return 0;
+        else if (m == ANARI_NO_WAIT)
+            return f->future()->isReady();
+        else {
+            f->future()->wait();
+            return 1;
+        }
     }
 
     void Device::discardFrame(ANARIFrame)

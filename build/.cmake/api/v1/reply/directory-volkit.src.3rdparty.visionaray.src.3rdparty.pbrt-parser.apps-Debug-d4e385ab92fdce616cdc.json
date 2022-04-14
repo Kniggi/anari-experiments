@@ -1,0 +1,63 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"volkit/src/3rdparty/visionaray/src/3rdparty/pbrt-parser/apps/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 36,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 37,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"pbrtInfo"
+			],
+			"targetId" : "pbrtInfo::@a47ae7120e3ebbb0ab6d",
+			"targetIndex" : 52,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"pbrt2pbf"
+			],
+			"targetId" : "pbrt2pbf::@a47ae7120e3ebbb0ab6d",
+			"targetIndex" : 51,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "volkit/src/3rdparty/visionaray/src/3rdparty/pbrt-parser/apps",
+		"source" : "volkit/src/3rdparty/visionaray/src/3rdparty/pbrt-parser/apps"
+	}
+}

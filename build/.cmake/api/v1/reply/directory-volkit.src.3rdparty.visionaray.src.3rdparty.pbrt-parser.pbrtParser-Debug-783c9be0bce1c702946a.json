@@ -1,0 +1,122 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"volkit/src/3rdparty/visionaray/src/3rdparty/pbrt-parser/pbrtParser/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 74,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 100,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 103,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 106,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libpbrtParser_shared.so.2.4.1"
+			],
+			"targetId" : "pbrtParser_shared::@ce692161698cae3aa5db",
+			"targetIndex" : 54,
+			"targetInstallNamelink" : "skip",
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libpbrtParser_shared.so"
+			],
+			"targetId" : "pbrtParser_shared::@ce692161698cae3aa5db",
+			"targetIndex" : 54,
+			"targetInstallNamelink" : "only",
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libpbrtParser.a"
+			],
+			"targetId" : "pbrtParser::@ce692161698cae3aa5db",
+			"targetIndex" : 53,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "include/pbrtParser",
+			"paths" : 
+			[
+				"volkit/src/3rdparty/visionaray/src/3rdparty/pbrt-parser/pbrtParser/include/pbrtParser/math.h",
+				"volkit/src/3rdparty/visionaray/src/3rdparty/pbrt-parser/pbrtParser/include/pbrtParser/Scene.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/pbrtParser",
+			"exportName" : "pbrtParserConfig",
+			"exportTargets" : 
+			[
+				{
+					"id" : "pbrtParser_shared::@ce692161698cae3aa5db",
+					"index" : 54
+				},
+				{
+					"id" : "pbrtParser::@ce692161698cae3aa5db",
+					"index" : 53
+				}
+			],
+			"paths" : 
+			[
+				"volkit/src/3rdparty/visionaray/src/3rdparty/pbrt-parser/pbrtParser/CMakeFiles/Export/lib/cmake/pbrtParser/pbrtParserConfig.cmake"
+			],
+			"type" : "export"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "volkit/src/3rdparty/visionaray/src/3rdparty/pbrt-parser/pbrtParser",
+		"source" : "volkit/src/3rdparty/visionaray/src/3rdparty/pbrt-parser/pbrtParser"
+	}
+}

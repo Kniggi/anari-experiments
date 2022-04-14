@@ -1,0 +1,1077 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "volkit/src/3rdparty/visionaray/src/common/libvisionaray_common.a"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"visionaray_add_library",
+			"target_link_libraries",
+			"target_compile_options",
+			"visionaray_target_set_warnings",
+			"include_directories",
+			"visionaray_use_package"
+		],
+		"files" : 
+		[
+			"volkit/src/3rdparty/visionaray/cmake/modules/VisionarayAddTarget.cmake",
+			"volkit/src/3rdparty/visionaray/src/common/CMakeLists.txt",
+			"volkit/src/3rdparty/visionaray/cmake/modules/VisionarayUsePackage.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 345,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 100,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 102,
+				"parent" : 1
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 101,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 19,
+				"parent" : 4
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 29,
+				"parent" : 4
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 32,
+				"parent" : 4
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 45,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 149,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 156,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 157,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 158,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 159,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 160,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 161,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 162,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 35,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 38,
+				"parent" : 17
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g   -Wmissing-braces -Wsign-compare -Wwrite-strings -Woverloaded-virtual -Wundef -Wall -Wextra -pedantic -Wno-ignored-attributes"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wmissing-braces"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wsign-compare"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wwrite-strings"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Woverloaded-virtual"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wundef"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "-pedantic"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wno-ignored-attributes"
+				},
+				{
+					"fragment" : "-std=gnu++14"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "BOOST_ALL_NO_LIB"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "BOOST_ATOMIC_DYN_LINK"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "BOOST_FILESYSTEM_DYN_LINK"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "BOOST_IOSTREAMS_DYN_LINK"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "BOOST_SYSTEM_DYN_LINK"
+				},
+				{
+					"define" : "VIRVO_STATIC"
+				},
+				{
+					"define" : "VKT_STATIC"
+				},
+				{
+					"define" : "VSNRAY_STATIC"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 9,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/build/volkit/src/3rdparty/visionaray/config"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/include"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/src"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/src/3rdparty/CmdLine/include"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/src/3rdparty/imgui"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/src/3rdparty/pbrt-parser/pbrtParser/include"
+				},
+				{
+					"backtrace" : 15,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/src/3rdparty/rapidjson/include"
+				},
+				{
+					"backtrace" : 16,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/src/3rdparty/tinyply/source"
+				},
+				{
+					"backtrace" : 18,
+					"isSystem" : true,
+					"path" : "/usr/local/cuda-11.5/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					2
+				],
+				"standard" : "14"
+			},
+			"sourceIndexes" : 
+			[
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				98,
+				99,
+				106,
+				107,
+				108,
+				109,
+				111
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "pbrtParser::@ce692161698cae3aa5db"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "visionaray::@8f9e7d30df6ccfbaef7c"
+		}
+	],
+	"id" : "visionaray_common::@2940624a53a5a6d21f8e",
+	"name" : "visionaray_common",
+	"nameOnDisk" : "libvisionaray_common.a",
+	"paths" : 
+	{
+		"build" : "volkit/src/3rdparty/visionaray/src/common",
+		"source" : "volkit/src/3rdparty/visionaray/src/common"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				93,
+				94,
+				95,
+				96,
+				97,
+				100,
+				101,
+				102,
+				103,
+				104,
+				105,
+				110
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				98,
+				99,
+				106,
+				107,
+				108,
+				109,
+				111
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"path" : "build/volkit/src/3rdparty/visionaray/config/common/config.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/async/connection.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/async/connection_manager.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/async/message.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/input/cocoa.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/input/glut.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/input/key_event.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/input/keyboard.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/input/mouse.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/input/mouse_event.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/input/qt.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/input/sdl2.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/input/space_mouse.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/arcball.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/arcball_manipulator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/camera_manipulator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/first_person_manipulator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/model_manipulator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/pan_manipulator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/rotate_manipulator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/translate_manipulator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/zoom_manipulator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/sg/io.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/sg/material.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/bvh_outline_renderer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/cfile.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/dds_image.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/export.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/exr_image.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/fbx_loader.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/file_base.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/gl_debug_callback.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/hdr_image.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/image.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/image_base.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/jpeg_image.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/make_materials.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/make_texture.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/moana_loader.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/model.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/obj_grammar.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/obj_loader.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/pbrt_loader.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/ply_loader.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/png_image.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/pnm_image.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/ptex.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/ptex.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/sg.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/tga_image.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/tiff_image.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/timer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/viewer_base.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/vsnray_loader.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/viewer_glut.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/async/connection.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/async/connection_manager.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/async/message.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/input/space_mouse.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/arcball.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/arcball_manipulator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/camera_manipulator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/first_person_manipulator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/model_manipulator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/pan_manipulator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/rotate_manipulator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/translate_manipulator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/manip/zoom_manipulator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/bvh_outline_renderer.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/dds_image.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/exr_image.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/fbx_loader.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/file_base.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/gl_debug_callback.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/hdr_image.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/image.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/image_base.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/inifile.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/jpeg_image.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/moana_loader.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/model.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/obj_grammar.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/obj_loader.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/pbrt_loader.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/ply_loader.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/png_image.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/pnm_image.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/sg.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/tga_image.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/tiff_image.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/viewer_base.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/vsnray_loader.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/common/viewer_glut.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/CmdLine/include/Support/CmdLine.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/CmdLine/include/Support/CmdLineUtil.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/CmdLine/include/Support/StringRef.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/CmdLine/include/Support/StringRefStream.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/CmdLine/include/Support/StringSplit.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/CmdLine/src/CmdLine.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/CmdLine/src/CmdLineUtil.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imconfig.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imgui.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imgui_internal.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imstb_rectpack.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imstb_textedit.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imstb_truetype.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imgui.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imgui_draw.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imgui_tables.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imgui_widgets.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/tinyply/source/tinyply.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/tinyply/source/tinyply.cpp",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

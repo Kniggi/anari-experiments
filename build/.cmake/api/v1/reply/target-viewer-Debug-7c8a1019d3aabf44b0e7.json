@@ -1,0 +1,467 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "viewer"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_libraries",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt",
+			"asg/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 36,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 57,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 38,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 45,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 2,
+					"fragment" : "-fopenmp"
+				},
+				{
+					"backtrace" : 2,
+					"fragment" : "-Wno-ignored-attributes"
+				},
+				{
+					"fragment" : "-std=gnu++17"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 2,
+					"define" : "ASG_HAVE_PBRT_PARSER=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "ASG_HAVE_VOLKIT=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "BOOST_ALL_NO_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "BOOST_ATOMIC_DYN_LINK"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "BOOST_FILESYSTEM_DYN_LINK"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "BOOST_IOSTREAMS_DYN_LINK"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "BOOST_SERIALIZATION_DYN_LINK"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "BOOST_SYSTEM_DYN_LINK"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "PBRT_PARSER_DLL_INTERFACE"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 5,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/src/3rdparty/imgui"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/include/c"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/include/cpp"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/include/shared"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/build/volkit/config"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/src"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/src/3rdparty/CmdLine/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/build/volkit/src/3rdparty/visionaray/config"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/src/3rdparty/pbrt-parser/pbrtParser/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "pbrtParser_shared::@ce692161698cae3aa5db"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "pbrtParser::@ce692161698cae3aa5db"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "visionaray_common::@2940624a53a5a6d21f8e"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "visionaray::@8f9e7d30df6ccfbaef7c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "volkit::@5e5fa86d9eb65c37db35"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "asg::@6c2fc2079326e3292333"
+		}
+	],
+	"id" : "viewer::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,-rpath -Wl,/home/niklas/Schreibtisch/gitrepo/anari-experiments/build/stub_device -Wl,-rpath -Wl,/home/niklas/Schreibtisch/gitrepo/anari-experiments/build/generic_device   -rdynamic",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-L/home/niklas/Schreibtisch/gitrepo/anari-experiments/build/volkit/src/vkt",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-L/home/niklas/Schreibtisch/gitrepo/anari-experiments/build/volkit/src/3rdparty/visionaray/src/common",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-L/home/niklas/Schreibtisch/gitrepo/anari-experiments/build/asg",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-L/home/niklas/Schreibtisch/gitrepo/anari-experiments/build",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-L/home/niklas/Schreibtisch/gitrepo/anari-experiments/build/volkit/src/3rdparty/visionaray/src/visionaray",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-L/usr/local/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-L/usr/local/cuda-11.5/lib64",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/niklas/Schreibtisch/gitrepo/anari-experiments/build:/usr/local/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLEW.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "volkit/src/vkt/libvolkit.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "volkit/src/3rdparty/visionaray/src/common/libvisionaray_common.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "asg/libasg.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/local/lib/libanari.so.0.1.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "volkit/src/vkt/libvolkit.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "volkit/src/3rdparty/visionaray/src/common/libvisionaray_common.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/lib/libboost_filesystem.so.1.77.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/lib/libboost_atomic.so.1.77.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/lib/libboost_iostreams.so.1.77.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/lib/libboost_system.so.1.77.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpng",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "libpbrtParser.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/lib/libboost_filesystem.so.1.77.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/lib/libboost_atomic.so.1.77.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/lib/libboost_system.so.1.77.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/lib/libboost_serialization.so.1.77.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lniftiio",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lznz",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lz",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lSDL2",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgomp",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lglut",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lXmu",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lXi",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "volkit/src/3rdparty/visionaray/src/visionaray/libvisionaray.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/cuda-11.5/lib64/libcudart_static.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lrt",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lGLEW",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lGL",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lGLU",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "libpbrtParser_shared.so.2.4.1",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "viewer",
+	"nameOnDisk" : "viewer",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imgui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imgui_draw.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imgui_tables.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/3rdparty/imgui/imgui_widgets.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/vkt/TransfuncEditor.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "viewer.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

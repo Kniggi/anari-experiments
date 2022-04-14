@@ -1,0 +1,628 @@
+\hypertarget{asg_8h}{}\doxysection{asg.\+h File Reference}
+\label{asg_8h}\index{asg.h@{asg.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$anari/anari.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{asg_8h_a82644e0875fbe252c87261178836a9f4}\label{asg_8h_a82644e0875fbe252c87261178836a9f4}} 
+\#define {\bfseries A\+S\+G\+A\+PI}~/$\ast$T\+O\+DO$\ast$/
+\item 
+\mbox{\Hypertarget{asg_8h_a52907752544e3d90c6f9c7ad4690eb6e}\label{asg_8h_a52907752544e3d90c6f9c7ad4690eb6e}} 
+\#define {\bfseries A\+S\+G\+\_\+\+F\+A\+L\+SE}~0
+\item 
+\mbox{\Hypertarget{asg_8h_a353b74f9300dea6be36897f00ec59893}\label{asg_8h_a353b74f9300dea6be36897f00ec59893}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+R\+UE}~1
+\item 
+\mbox{\Hypertarget{asg_8h_a15ddb3ca7ed0ae6a783f083b91a527d7}\label{asg_8h_a15ddb3ca7ed0ae6a783f083b91a527d7}} 
+\#define {\bfseries A\+S\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}~0
+\item 
+\mbox{\Hypertarget{asg_8h_afe3df58addf4bbe8873d3067318f7413}\label{asg_8h_afe3df58addf4bbe8873d3067318f7413}} 
+\#define {\bfseries A\+S\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+C\+H\+I\+L\+D\+\_\+\+ID}~5
+\item 
+\mbox{\Hypertarget{asg_8h_a97d7899e3eecd82efb4409c91b05cefe}\label{asg_8h_a97d7899e3eecd82efb4409c91b05cefe}} 
+\#define {\bfseries A\+S\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+P\+A\+R\+E\+N\+T\+\_\+\+ID}~6
+\item 
+\mbox{\Hypertarget{asg_8h_ac5834bae8371a04287551e2b6258ffed}\label{asg_8h_ac5834bae8371a04287551e2b6258ffed}} 
+\#define {\bfseries A\+S\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+P\+A\+T\+H\+\_\+\+ID}~7
+\item 
+\mbox{\Hypertarget{asg_8h_ae958bbcca12e91f14131c382004b5c30}\label{asg_8h_ae958bbcca12e91f14131c382004b5c30}} 
+\#define {\bfseries A\+S\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+S\+U\+F\+F\+I\+C\+I\+E\+N\+T\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+S\+I\+ZE}~10
+\item 
+\mbox{\Hypertarget{asg_8h_a661cf4e74e180ed5d8e66b5057ce0945}\label{asg_8h_a661cf4e74e180ed5d8e66b5057ce0945}} 
+\#define {\bfseries A\+S\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+A\+R\+A\+M\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND}~50
+\item 
+\mbox{\Hypertarget{asg_8h_a9b2ffc27173b927e2d38324137fc9bd5}\label{asg_8h_a9b2ffc27173b927e2d38324137fc9bd5}} 
+\#define {\bfseries A\+S\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+M\+I\+S\+S\+I\+N\+G\+\_\+\+F\+I\+L\+E\+\_\+\+H\+A\+N\+D\+L\+ER}~100
+\item 
+\mbox{\Hypertarget{asg_8h_ab907a6e8f6a7932016f77ccd8e1d9ea4}\label{asg_8h_ab907a6e8f6a7932016f77ccd8e1d9ea4}} 
+\#define {\bfseries A\+S\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+F\+I\+L\+E\+\_\+\+I\+O\+\_\+\+E\+R\+R\+OR}~150
+\item 
+\mbox{\Hypertarget{asg_8h_a2835f3ff1c41d39384e25f9b7adc7379}\label{asg_8h_a2835f3ff1c41d39384e25f9b7adc7379}} 
+\#define {\bfseries A\+S\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+L\+U\+T\+\_\+\+ID}~700
+\item 
+\mbox{\Hypertarget{asg_8h_afdf50e0a932dbe3615ce8c3808c9674d}\label{asg_8h_afdf50e0a932dbe3615ce8c3808c9674d}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+O\+B\+J\+E\+CT}~0
+\item 
+\mbox{\Hypertarget{asg_8h_afe68a0845e9641436abd396a339c2b8a}\label{asg_8h_afe68a0845e9641436abd396a339c2b8a}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+\_\+\+G\+E\+O\+M\+E\+T\+RY}~1000
+\item 
+\mbox{\Hypertarget{asg_8h_ab9eef944e4c92ec6c70591497a37e907}\label{asg_8h_ab9eef944e4c92ec6c70591497a37e907}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+P\+H\+E\+R\+E\+\_\+\+G\+E\+O\+M\+E\+T\+RY}~1001
+\item 
+\mbox{\Hypertarget{asg_8h_a77ed7e769b1e0dd14dd69af85038005f}\label{asg_8h_a77ed7e769b1e0dd14dd69af85038005f}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+Y\+L\+I\+N\+D\+E\+R\+\_\+\+G\+E\+O\+M\+E\+T\+RY}~1004
+\item 
+\mbox{\Hypertarget{asg_8h_aea8616e25e858d961863029b3669dcfa}\label{asg_8h_aea8616e25e858d961863029b3669dcfa}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+A\+T\+E\+R\+I\+AL}~1010
+\item 
+\mbox{\Hypertarget{asg_8h_a74516895272c2f896dbd36b5bc491bcc}\label{asg_8h_a74516895272c2f896dbd36b5bc491bcc}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+I\+G\+HT}~1020
+\item 
+\mbox{\Hypertarget{asg_8h_ae8d9416256ea0fc3d7971bfc34b8692d}\label{asg_8h_ae8d9416256ea0fc3d7971bfc34b8692d}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+U\+R\+F\+A\+CE}~1030
+\item 
+\mbox{\Hypertarget{asg_8h_a7e4550ec06adfead82fb003908feb0d2}\label{asg_8h_a7e4550ec06adfead82fb003908feb0d2}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+O\+O\+K\+U\+P\+\_\+\+T\+A\+B\+L\+E1D}~1040
+\item 
+\mbox{\Hypertarget{asg_8h_a7be6fb0058d489ee477deae6b7010613}\label{asg_8h_a7be6fb0058d489ee477deae6b7010613}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+U\+C\+T\+U\+R\+E\+D\+\_\+\+V\+O\+L\+U\+ME}~1050
+\item 
+\mbox{\Hypertarget{asg_8h_a46f74b3a24cdbda1b540c5c6381199a4}\label{asg_8h_a46f74b3a24cdbda1b540c5c6381199a4}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+T\+R\+A\+N\+S\+F\+O\+RM}~1060
+\item 
+\mbox{\Hypertarget{asg_8h_a7eecffbd48fa56d7c08894b47c6f9adf}\label{asg_8h_a7eecffbd48fa56d7c08894b47c6f9adf}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+E\+L\+E\+CT}~1070
+\item 
+\mbox{\Hypertarget{asg_8h_a7d1c5efe8ec18b5eb1b5317c5b095a33}\label{asg_8h_a7d1c5efe8ec18b5eb1b5317c5b095a33}} 
+\#define {\bfseries A\+S\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+A\+M\+E\+RA}~1080
+\item 
+\mbox{\Hypertarget{asg_8h_a42055d6005667b851676d91aead72f7d}\label{asg_8h_a42055d6005667b851676d91aead72f7d}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T8}~0
+\item 
+\mbox{\Hypertarget{asg_8h_a32099ca457e05bd13d3ed2d609ec58c6}\label{asg_8h_a32099ca457e05bd13d3ed2d609ec58c6}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T8\+\_\+\+V\+E\+C1}~0
+\item 
+\mbox{\Hypertarget{asg_8h_a3cc63503bf2c63e8f34895cc33a5357a}\label{asg_8h_a3cc63503bf2c63e8f34895cc33a5357a}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T8\+\_\+\+V\+E\+C2}~1
+\item 
+\mbox{\Hypertarget{asg_8h_a8c56c2aaca09b9a16c8af59d27c9c95c}\label{asg_8h_a8c56c2aaca09b9a16c8af59d27c9c95c}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T8\+\_\+\+V\+E\+C3}~2
+\item 
+\mbox{\Hypertarget{asg_8h_a85f54df0e068970efa9d5d54a5d804d0}\label{asg_8h_a85f54df0e068970efa9d5d54a5d804d0}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T8\+\_\+\+V\+E\+C4}~3
+\item 
+\mbox{\Hypertarget{asg_8h_a74cf78bee04a98c88674d08b1c3bc1d4}\label{asg_8h_a74cf78bee04a98c88674d08b1c3bc1d4}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T16}~10
+\item 
+\mbox{\Hypertarget{asg_8h_a10b4a17d9264493974c495193b0302e3}\label{asg_8h_a10b4a17d9264493974c495193b0302e3}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T16\+\_\+\+V\+E\+C1}~10
+\item 
+\mbox{\Hypertarget{asg_8h_ad658df4ae902a0ed653ff2a88695bf28}\label{asg_8h_ad658df4ae902a0ed653ff2a88695bf28}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T16\+\_\+\+V\+E\+C2}~11
+\item 
+\mbox{\Hypertarget{asg_8h_abb3d38a84dd8b961b57d4ac432adb02e}\label{asg_8h_abb3d38a84dd8b961b57d4ac432adb02e}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T16\+\_\+\+V\+E\+C3}~12
+\item 
+\mbox{\Hypertarget{asg_8h_aca2bbc6e1234ce915e58213f90dd1a09}\label{asg_8h_aca2bbc6e1234ce915e58213f90dd1a09}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T16\+\_\+\+V\+E\+C4}~13
+\item 
+\mbox{\Hypertarget{asg_8h_a69f84966b7b531fb572afd5c2bc90189}\label{asg_8h_a69f84966b7b531fb572afd5c2bc90189}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T32}~20
+\item 
+\mbox{\Hypertarget{asg_8h_aeb85d7657cc95e6693ef746312a15b4f}\label{asg_8h_aeb85d7657cc95e6693ef746312a15b4f}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T32\+\_\+\+V\+E\+C1}~20
+\item 
+\mbox{\Hypertarget{asg_8h_ae3aea1869b3ddbcf370dbfc5d73701e0}\label{asg_8h_ae3aea1869b3ddbcf370dbfc5d73701e0}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T32\+\_\+\+V\+E\+C2}~21
+\item 
+\mbox{\Hypertarget{asg_8h_aa44f13de7fa94e756514b6250a3388c4}\label{asg_8h_aa44f13de7fa94e756514b6250a3388c4}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T32\+\_\+\+V\+E\+C3}~22
+\item 
+\mbox{\Hypertarget{asg_8h_af8342820864a82148dd725cb70bb8eb3}\label{asg_8h_af8342820864a82148dd725cb70bb8eb3}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T32\+\_\+\+V\+E\+C4}~23
+\item 
+\mbox{\Hypertarget{asg_8h_a33dc635161c7ec5fe1ef0f3df5eeadbd}\label{asg_8h_a33dc635161c7ec5fe1ef0f3df5eeadbd}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T64}~30
+\item 
+\mbox{\Hypertarget{asg_8h_a43173707dbba96315be0d2279acd37f0}\label{asg_8h_a43173707dbba96315be0d2279acd37f0}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T64\+\_\+\+V\+E\+C1}~30
+\item 
+\mbox{\Hypertarget{asg_8h_abf967800efc74aa4afed315098e5f45a}\label{asg_8h_abf967800efc74aa4afed315098e5f45a}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T64\+\_\+\+V\+E\+C2}~31
+\item 
+\mbox{\Hypertarget{asg_8h_a0d66488c6221ceaf4e4646cacd964c04}\label{asg_8h_a0d66488c6221ceaf4e4646cacd964c04}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T64\+\_\+\+V\+E\+C3}~32
+\item 
+\mbox{\Hypertarget{asg_8h_adbc228903de48e613e247961678f8e98}\label{asg_8h_adbc228903de48e613e247961678f8e98}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T64\+\_\+\+V\+E\+C4}~33
+\item 
+\mbox{\Hypertarget{asg_8h_ae7e1627e13b6480c93e38502b247f0a1}\label{asg_8h_ae7e1627e13b6480c93e38502b247f0a1}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T8}~100
+\item 
+\mbox{\Hypertarget{asg_8h_a8fd6d2ba177fb1e2a981e065f5f18f8f}\label{asg_8h_a8fd6d2ba177fb1e2a981e065f5f18f8f}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T8\+\_\+\+V\+E\+C1}~100
+\item 
+\mbox{\Hypertarget{asg_8h_ae161205ec5791a11bec4c4f5ccf0eedf}\label{asg_8h_ae161205ec5791a11bec4c4f5ccf0eedf}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T8\+\_\+\+V\+E\+C2}~101
+\item 
+\mbox{\Hypertarget{asg_8h_a245001ec9c6fdacb4bcb40760c5219d5}\label{asg_8h_a245001ec9c6fdacb4bcb40760c5219d5}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T8\+\_\+\+V\+E\+C3}~102
+\item 
+\mbox{\Hypertarget{asg_8h_a918c908cea393b52bc40cff038a49005}\label{asg_8h_a918c908cea393b52bc40cff038a49005}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T8\+\_\+\+V\+E\+C4}~103
+\item 
+\mbox{\Hypertarget{asg_8h_ac972451d38aec486cde6bddf84f1cb31}\label{asg_8h_ac972451d38aec486cde6bddf84f1cb31}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T16}~110
+\item 
+\mbox{\Hypertarget{asg_8h_ae3d8024bf1c521dc6ba7f93138d0d809}\label{asg_8h_ae3d8024bf1c521dc6ba7f93138d0d809}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T16\+\_\+\+V\+E\+C1}~110
+\item 
+\mbox{\Hypertarget{asg_8h_a8427a3b23e490520df5de8288e863f01}\label{asg_8h_a8427a3b23e490520df5de8288e863f01}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T16\+\_\+\+V\+E\+C2}~111
+\item 
+\mbox{\Hypertarget{asg_8h_acf97d201d28daff8534f1d6b547cbfc4}\label{asg_8h_acf97d201d28daff8534f1d6b547cbfc4}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T16\+\_\+\+V\+E\+C3}~112
+\item 
+\mbox{\Hypertarget{asg_8h_abe8104aad97a32c04ba5296c2a894afd}\label{asg_8h_abe8104aad97a32c04ba5296c2a894afd}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T16\+\_\+\+V\+E\+C4}~113
+\item 
+\mbox{\Hypertarget{asg_8h_a14791c7ddd04a236bd69a4408bcf3746}\label{asg_8h_a14791c7ddd04a236bd69a4408bcf3746}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T32}~120
+\item 
+\mbox{\Hypertarget{asg_8h_a64ffa7efff275d989053f9ff2a8e2395}\label{asg_8h_a64ffa7efff275d989053f9ff2a8e2395}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T32\+\_\+\+V\+E\+C1}~120
+\item 
+\mbox{\Hypertarget{asg_8h_a5b89c07959fbfb299ea7ac2ed13bc208}\label{asg_8h_a5b89c07959fbfb299ea7ac2ed13bc208}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T32\+\_\+\+V\+E\+C2}~121
+\item 
+\mbox{\Hypertarget{asg_8h_a017813fe048e2c28ff5d5c42d3b772d5}\label{asg_8h_a017813fe048e2c28ff5d5c42d3b772d5}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T32\+\_\+\+V\+E\+C3}~122
+\item 
+\mbox{\Hypertarget{asg_8h_ae1f60c568b19053af9d01edcdc770079}\label{asg_8h_ae1f60c568b19053af9d01edcdc770079}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T32\+\_\+\+V\+E\+C4}~123
+\item 
+\mbox{\Hypertarget{asg_8h_ae1897ca073f8d1f2da49d525d810c49c}\label{asg_8h_ae1897ca073f8d1f2da49d525d810c49c}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T64}~130
+\item 
+\mbox{\Hypertarget{asg_8h_a1986977d0a9347db23ab4061c8e7cee7}\label{asg_8h_a1986977d0a9347db23ab4061c8e7cee7}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T64\+\_\+\+V\+E\+C1}~130
+\item 
+\mbox{\Hypertarget{asg_8h_a410ddaab11b36a324ca2d746c476127d}\label{asg_8h_a410ddaab11b36a324ca2d746c476127d}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T64\+\_\+\+V\+E\+C2}~131
+\item 
+\mbox{\Hypertarget{asg_8h_ad654e5342fc68d62bc9f3f3c4b2b5549}\label{asg_8h_ad654e5342fc68d62bc9f3f3c4b2b5549}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T64\+\_\+\+V\+E\+C3}~132
+\item 
+\mbox{\Hypertarget{asg_8h_af62c32dd92e398eef635fcad6f25e367}\label{asg_8h_af62c32dd92e398eef635fcad6f25e367}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+I\+N\+T64\+\_\+\+V\+E\+C4}~133
+\item 
+\mbox{\Hypertarget{asg_8h_a8127e559c470a03630fbe32ed1e99fb1}\label{asg_8h_a8127e559c470a03630fbe32ed1e99fb1}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+F\+L\+O\+A\+T32}~230
+\item 
+\mbox{\Hypertarget{asg_8h_aa2f4f0f2b45f1143a6fa03e7f4ed90d2}\label{asg_8h_aa2f4f0f2b45f1143a6fa03e7f4ed90d2}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+F\+L\+O\+A\+T32\+\_\+\+V\+E\+C1}~230
+\item 
+\mbox{\Hypertarget{asg_8h_a2b9f72118e64f56e0f4edfa53250fbc8}\label{asg_8h_a2b9f72118e64f56e0f4edfa53250fbc8}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+F\+L\+O\+A\+T32\+\_\+\+V\+E\+C2}~231
+\item 
+\mbox{\Hypertarget{asg_8h_af309e886932c244bc044864ec1b8ec4e}\label{asg_8h_af309e886932c244bc044864ec1b8ec4e}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+F\+L\+O\+A\+T32\+\_\+\+V\+E\+C3}~232
+\item 
+\mbox{\Hypertarget{asg_8h_a940be295628311b98e73ca269be9bc43}\label{asg_8h_a940be295628311b98e73ca269be9bc43}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+F\+L\+O\+A\+T32\+\_\+\+V\+E\+C4}~233
+\item 
+\mbox{\Hypertarget{asg_8h_aab62508352da6f1fb8a9531bbc2c7b78}\label{asg_8h_aab62508352da6f1fb8a9531bbc2c7b78}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+F\+L\+O\+A\+T64}~300
+\item 
+\mbox{\Hypertarget{asg_8h_a0a9146f68de98051a8fadf933e3904ef}\label{asg_8h_a0a9146f68de98051a8fadf933e3904ef}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+H\+A\+N\+D\+LE}~666
+\item 
+\mbox{\Hypertarget{asg_8h_ac35d543b969ea0d50ded09047ad95ec8}\label{asg_8h_ac35d543b969ea0d50ded09047ad95ec8}} 
+\#define {\bfseries A\+S\+G\+\_\+\+V\+I\+S\+I\+T\+O\+R\+\_\+\+T\+R\+A\+V\+E\+R\+S\+A\+L\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+H\+I\+L\+D\+R\+EN}~0
+\item 
+\mbox{\Hypertarget{asg_8h_a42f240bb83cc9631383ef1b54be49338}\label{asg_8h_a42f240bb83cc9631383ef1b54be49338}} 
+\#define {\bfseries A\+S\+G\+\_\+\+V\+I\+S\+I\+T\+O\+R\+\_\+\+T\+R\+A\+V\+E\+R\+S\+A\+L\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+A\+R\+E\+N\+TS}~1
+\item 
+\mbox{\Hypertarget{asg_8h_a8dc3d17bc0075f6dbdbb885a123b4ed9}\label{asg_8h_a8dc3d17bc0075f6dbdbb885a123b4ed9}} 
+\#define {\bfseries A\+S\+G\+\_\+\+M\+A\+T\+R\+I\+X\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+C\+O\+L\+\_\+\+M\+A\+J\+OR}~0
+\item 
+\mbox{\Hypertarget{asg_8h_ace672aa6ba17b0952faff267a6ccdb6f}\label{asg_8h_ace672aa6ba17b0952faff267a6ccdb6f}} 
+\#define {\bfseries A\+S\+G\+\_\+\+M\+A\+T\+R\+I\+X\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+R\+O\+W\+\_\+\+M\+A\+J\+OR}~1
+\item 
+\mbox{\Hypertarget{asg_8h_aa119e41420127d3f5c14301677ead8e2}\label{asg_8h_aa119e41420127d3f5c14301677ead8e2}} 
+\#define {\bfseries A\+S\+G\+\_\+\+L\+U\+T\+\_\+\+I\+D\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+L\+UT}~0
+\item 
+\mbox{\Hypertarget{asg_8h_a1fa8b10b3e8e6f77b21d6643c7b4c619}\label{asg_8h_a1fa8b10b3e8e6f77b21d6643c7b4c619}} 
+\#define {\bfseries A\+S\+G\+\_\+\+I\+O\+\_\+\+F\+L\+A\+G\+\_\+\+R\+E\+S\+A\+M\+P\+L\+E\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+D\+I\+MS}~1
+\item 
+\mbox{\Hypertarget{asg_8h_a14d47cba21beefe2ad6b7937ad1d8dc2}\label{asg_8h_a14d47cba21beefe2ad6b7937ad1d8dc2}} 
+\#define {\bfseries A\+S\+G\+\_\+\+I\+O\+\_\+\+F\+L\+A\+G\+\_\+\+R\+E\+S\+A\+M\+P\+L\+E\+\_\+\+V\+O\+X\+E\+L\+\_\+\+T\+Y\+PE}~2
+\item 
+\mbox{\Hypertarget{asg_8h_a18a1f48c3be3aa2a0f2e108feaeb7c81}\label{asg_8h_a18a1f48c3be3aa2a0f2e108feaeb7c81}} 
+\#define {\bfseries A\+S\+G\+\_\+\+B\+U\+I\+L\+D\+\_\+\+W\+O\+R\+L\+D\+\_\+\+F\+L\+A\+G\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+B\+U\+I\+LD}~0x\+F\+F\+F\+F\+F\+F\+F\+F\+F\+F\+F\+F\+F\+F\+F\+F\+U\+LL
+\item 
+\mbox{\Hypertarget{asg_8h_a339bda2c94ae6bdb48c303c7fb9b67c4}\label{asg_8h_a339bda2c94ae6bdb48c303c7fb9b67c4}} 
+\#define {\bfseries A\+S\+G\+\_\+\+B\+U\+I\+L\+D\+\_\+\+W\+O\+R\+L\+D\+\_\+\+F\+L\+A\+G\+\_\+\+G\+E\+O\+M\+E\+T\+R\+I\+ES}~0x0000000000000001\+U\+LL
+\item 
+\mbox{\Hypertarget{asg_8h_a614367e2091c2c622979095870d55b88}\label{asg_8h_a614367e2091c2c622979095870d55b88}} 
+\#define {\bfseries A\+S\+G\+\_\+\+B\+U\+I\+L\+D\+\_\+\+W\+O\+R\+L\+D\+\_\+\+F\+L\+A\+G\+\_\+\+V\+O\+L\+U\+M\+ES}~0x0000000000000002\+U\+LL
+\item 
+\mbox{\Hypertarget{asg_8h_acfa4a80d893c567cd27e42da87a65f0f}\label{asg_8h_acfa4a80d893c567cd27e42da87a65f0f}} 
+\#define {\bfseries A\+S\+G\+\_\+\+B\+U\+I\+L\+D\+\_\+\+W\+O\+R\+L\+D\+\_\+\+F\+L\+A\+G\+\_\+\+M\+A\+T\+E\+R\+I\+A\+LS}~0x0000000000000004\+U\+LL
+\item 
+\mbox{\Hypertarget{asg_8h_aa5a1c8adbd24b543a81cae51dd05414b}\label{asg_8h_aa5a1c8adbd24b543a81cae51dd05414b}} 
+\#define {\bfseries A\+S\+G\+\_\+\+B\+U\+I\+L\+D\+\_\+\+W\+O\+R\+L\+D\+\_\+\+F\+L\+A\+G\+\_\+\+L\+I\+G\+H\+TS}~0x0000000000000008\+U\+LL
+\item 
+\mbox{\Hypertarget{asg_8h_aa917bcb4be641ac1127fb2b8dc957a24}\label{asg_8h_aa917bcb4be641ac1127fb2b8dc957a24}} 
+\#define {\bfseries A\+S\+G\+\_\+\+B\+U\+I\+L\+D\+\_\+\+W\+O\+R\+L\+D\+\_\+\+F\+L\+A\+G\+\_\+\+T\+R\+A\+N\+S\+F\+O\+R\+MS}~0x0000000000000016\+U\+LL
+\item 
+\mbox{\Hypertarget{asg_8h_ab2b2929bb44faab02c0aedbe2d55f33a}\label{asg_8h_ab2b2929bb44faab02c0aedbe2d55f33a}} 
+\#define {\bfseries A\+S\+G\+\_\+\+B\+U\+I\+L\+D\+\_\+\+W\+O\+R\+L\+D\+\_\+\+F\+L\+A\+G\+\_\+\+L\+U\+TS}~0x0000000000000032\+U\+LL
+\item 
+\mbox{\Hypertarget{asg_8h_a35fd1ce41738debc6b562ba12769b5ad}\label{asg_8h_a35fd1ce41738debc6b562ba12769b5ad}} 
+\#define {\bfseries A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM}(P)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{asg_8h_a23ee6ff7ce753935abbdc66600a2e4e2}\label{asg_8h_a23ee6ff7ce753935abbdc66600a2e4e2}} 
+typedef uint8\+\_\+t {\bfseries A\+S\+G\+Bool\+\_\+t}
+\item 
+\mbox{\Hypertarget{asg_8h_a5883ac6456f2b00d1e2b9632e371168a}\label{asg_8h_a5883ac6456f2b00d1e2b9632e371168a}} 
+typedef int {\bfseries A\+S\+G\+Error\+\_\+t}
+\item 
+\mbox{\Hypertarget{asg_8h_a8124f2784bbbf60fb33839f9ce5c383e}\label{asg_8h_a8124f2784bbbf60fb33839f9ce5c383e}} 
+typedef int {\bfseries A\+S\+G\+Type\+\_\+t}
+\item 
+\mbox{\Hypertarget{asg_8h_abb505e96f865bb753dc18739335c9831}\label{asg_8h_abb505e96f865bb753dc18739335c9831}} 
+typedef int {\bfseries A\+S\+G\+Data\+Type\+\_\+t}
+\item 
+\mbox{\Hypertarget{asg_8h_afeda573bad2d70f89d47bed2bc8a0f94}\label{asg_8h_afeda573bad2d70f89d47bed2bc8a0f94}} 
+typedef int {\bfseries A\+S\+G\+Visitor\+Traversal\+Type\+\_\+t}
+\item 
+\mbox{\Hypertarget{asg_8h_a3d2201f0d99ddab2c1a6a9c61aae89df}\label{asg_8h_a3d2201f0d99ddab2c1a6a9c61aae89df}} 
+typedef int {\bfseries A\+S\+G\+Matrix\+Format\+\_\+t}
+\item 
+\mbox{\Hypertarget{asg_8h_a592045cebc0c977889415854ee829703}\label{asg_8h_a592045cebc0c977889415854ee829703}} 
+typedef int {\bfseries A\+S\+G\+Lut\+ID}
+\item 
+\mbox{\Hypertarget{asg_8h_a504cd26e905df696aadf33438c48584b}\label{asg_8h_a504cd26e905df696aadf33438c48584b}} 
+typedef uint64\+\_\+t {\bfseries A\+S\+G\+Build\+World\+Flags\+\_\+t}
+\item 
+\mbox{\Hypertarget{asg_8h_a51a1127c1c248734fb821a86ffacc2de}\label{asg_8h_a51a1127c1c248734fb821a86ffacc2de}} 
+typedef void($\ast$ {\bfseries A\+S\+G\+Visit\+Func}) (struct \+\_\+\+A\+S\+G\+Visitor $\ast$, struct \+\_\+\+A\+S\+G\+Object $\ast$, void $\ast$)
+\item 
+\mbox{\Hypertarget{asg_8h_a76dba257347bf3b1520ed74acce122bc}\label{asg_8h_a76dba257347bf3b1520ed74acce122bc}} 
+typedef void($\ast$ {\bfseries A\+S\+G\+Free\+Func}) (void $\ast$)
+\item 
+\mbox{\Hypertarget{asg_8h_a1911c51fac1e7cc61ee587644a6134ce}\label{asg_8h_a1911c51fac1e7cc61ee587644a6134ce}} 
+typedef struct \+\_\+\+A\+S\+G\+Visitor $\ast$ {\bfseries A\+S\+G\+Visitor}
+\item 
+\mbox{\Hypertarget{asg_8h_acc34a5d65a95438bf8e87abb0f4cd557}\label{asg_8h_acc34a5d65a95438bf8e87abb0f4cd557}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Object}
+\item 
+\mbox{\Hypertarget{asg_8h_aae4ef06bbfbdeedbb4c8e3459bb40482}\label{asg_8h_aae4ef06bbfbdeedbb4c8e3459bb40482}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Geometry}
+\item 
+\mbox{\Hypertarget{asg_8h_aa93edccf0d5e81471448ad4cdec97e50}\label{asg_8h_aa93edccf0d5e81471448ad4cdec97e50}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Triangle\+Geometry}
+\item 
+\mbox{\Hypertarget{asg_8h_a95d67c07282d62c0ec53eab0e2083f38}\label{asg_8h_a95d67c07282d62c0ec53eab0e2083f38}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Sphere\+Geometry}
+\item 
+\mbox{\Hypertarget{asg_8h_aee5b8e0b0d47e3fc59a84d44d8ecfaf1}\label{asg_8h_aee5b8e0b0d47e3fc59a84d44d8ecfaf1}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Cylinder\+Geometry}
+\item 
+\mbox{\Hypertarget{asg_8h_a1a212ae9e3f7cf04ddb994bc7de613c0}\label{asg_8h_a1a212ae9e3f7cf04ddb994bc7de613c0}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Material}
+\item 
+\mbox{\Hypertarget{asg_8h_aafb459f2ff3943ed8b4a37634cd13efb}\label{asg_8h_aafb459f2ff3943ed8b4a37634cd13efb}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Light}
+\item 
+\mbox{\Hypertarget{asg_8h_a7324fe3d93cbe5fafa5e74a447acd49e}\label{asg_8h_a7324fe3d93cbe5fafa5e74a447acd49e}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Surface}
+\item 
+\mbox{\Hypertarget{asg_8h_ae6bec45f2d4ee6be404bc4a334041c0e}\label{asg_8h_ae6bec45f2d4ee6be404bc4a334041c0e}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Sampler2D}
+\item 
+\mbox{\Hypertarget{asg_8h_a80c576045a7af66d98dad24646359755}\label{asg_8h_a80c576045a7af66d98dad24646359755}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Lookup\+Table1D}
+\item 
+\mbox{\Hypertarget{asg_8h_a721c7e6d0677b39d3d3e5403b18407d6}\label{asg_8h_a721c7e6d0677b39d3d3e5403b18407d6}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Structured\+Volume}
+\item 
+\mbox{\Hypertarget{asg_8h_a930a191c35a484267ea62e4af251e203}\label{asg_8h_a930a191c35a484267ea62e4af251e203}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Transform}
+\item 
+\mbox{\Hypertarget{asg_8h_a83798e5f5399629451615b757e4e6932}\label{asg_8h_a83798e5f5399629451615b757e4e6932}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Select}
+\item 
+\mbox{\Hypertarget{asg_8h_a7bf12bdce4bf0fa720c03c8be4e5bb4a}\label{asg_8h_a7bf12bdce4bf0fa720c03c8be4e5bb4a}} 
+typedef struct \+\_\+\+A\+S\+G\+Object $\ast$ {\bfseries A\+S\+G\+Camera}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{asg_8h_afea90719fca73dcb91b948cb52b7b1fd}\label{asg_8h_afea90719fca73dcb91b948cb52b7b1fd}} 
+A\+S\+G\+A\+PI size\+\_\+t {\bfseries asg\+Size\+Of\+Data\+Type} (A\+S\+G\+Data\+Type\+\_\+t type)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param1i} (const char $\ast$name, int v1)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param2i} (const char $\ast$name, int v1, int v2)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param3i} (const char $\ast$name, int v1, int v2, int v3)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param4i} (const char $\ast$name, int v1, int v2, int v3, int v4)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param2iv} (const char $\ast$name, int $\ast$v)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param3iv} (const char $\ast$name, int $\ast$v)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param4iv} (const char $\ast$name, int $\ast$v)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param1f} (const char $\ast$name, float v1)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param2f} (const char $\ast$name, float v1, float v2)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param3f} (const char $\ast$name, float v1, float v2, float v3)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param4f} (const char $\ast$name, float v1, float v2, float v3, float v4)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param2fv} (const char $\ast$name, float $\ast$v)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param3fv} (const char $\ast$name, float $\ast$v)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param4fv} (const char $\ast$name, float $\ast$v)
+\item 
+A\+S\+G\+A\+PI \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} {\bfseries asg\+Param\+Sampler2D} (const char $\ast$name, A\+S\+G\+Sampler2D samp)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Param\+Get\+Value} (\mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} param, void $\ast$mem)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Visitor {\bfseries asg\+Create\+Visitor} (void($\ast$visit\+Func)(A\+S\+G\+Visitor, A\+S\+G\+Object, void $\ast$), void $\ast$user\+Data, A\+S\+G\+Visitor\+Traversal\+Type\+\_\+t traversal\+Type)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Destroy\+Visitor} (A\+S\+G\+Visitor visitor)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Visitor\+Apply} (A\+S\+G\+Visitor visitor, A\+S\+G\+Object obj)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Select \mbox{\hyperlink{group___a_s_g_select_ga76800fab3c9b71e3d3276ed225665621}{asg\+New\+Select}} (A\+S\+G\+Bool\+\_\+t default\+Visibility A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(A\+S\+G\+\_\+\+T\+R\+UE))
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Select\+Set\+Default\+Visibility} (A\+S\+G\+Select select, A\+S\+G\+Bool\+\_\+t default\+Visibility)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Select\+Get\+Default\+Visibility} (A\+S\+G\+Select select, A\+S\+G\+Bool\+\_\+t $\ast$default\+Visibility)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Select\+Set\+Child\+Visible} (A\+S\+G\+Select select, int child\+ID, A\+S\+G\+Bool\+\_\+t visible)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Select\+Get\+Child\+Visible} (A\+S\+G\+Select select, int child\+ID, A\+S\+G\+Bool\+\_\+t $\ast$visible)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Camera {\bfseries asg\+New\+Camera} (const char $\ast$camera\+Type)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Camera\+Get\+Type} (A\+S\+G\+Camera camera, const char $\ast$$\ast$camera\+Type)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Camera\+Set\+Param} (A\+S\+G\+Camera camera, \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} param)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Camera\+Get\+Param} (A\+S\+G\+Camera camera, const char $\ast$param\+Name, \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} $\ast$param)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Material {\bfseries asg\+New\+Material} (const char $\ast$material\+Type)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Material\+Get\+Type} (A\+S\+G\+Material material, const char $\ast$$\ast$material\+Type)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Material\+Set\+Param} (A\+S\+G\+Material material, \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} param)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Material\+Get\+Param} (A\+S\+G\+Material material, const char $\ast$param\+Name, \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} $\ast$param)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Light {\bfseries asg\+New\+Light} (const char $\ast$light\+Type)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Light\+Get\+Type} (A\+S\+G\+Light light, const char $\ast$$\ast$light\+Type)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Light\+Set\+Param} (A\+S\+G\+Light light, \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} param)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Light\+Get\+Param} (A\+S\+G\+Light light, const char $\ast$param\+Name, \mbox{\hyperlink{struct_a_s_g_param}{A\+S\+G\+Param}} $\ast$param)
+\item 
+\mbox{\Hypertarget{asg_8h_adce9a0928df6ac93f5f44d814bbc7147}\label{asg_8h_adce9a0928df6ac93f5f44d814bbc7147}} 
+A\+S\+G\+A\+PI A\+S\+G\+Triangle\+Geometry {\bfseries asg\+New\+Triangle\+Geometry} (float $\ast$vertices, float $\ast$vertex\+Normals, float $\ast$vertex\+Colors, uint32\+\_\+t num\+Vertices, uint32\+\_\+t $\ast$indices, uint32\+\_\+t num\+Incidices, A\+S\+G\+Free\+Func free\+Vertices A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL), A\+S\+G\+Free\+Func free\+Normals A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL), A\+S\+G\+Free\+Func free\+Colors A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL), A\+S\+G\+Free\+Func free\+Indices A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL))
+\item 
+\mbox{\Hypertarget{asg_8h_a63b5b104e578b6e528a0c0d675bc5d0c}\label{asg_8h_a63b5b104e578b6e528a0c0d675bc5d0c}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Triangle\+Geometry\+Get\+Vertices} (A\+S\+G\+Triangle\+Geometry geom, float $\ast$$\ast$vertices)
+\item 
+\mbox{\Hypertarget{asg_8h_a789e8171dbdff036629d3153d93f4e3d}\label{asg_8h_a789e8171dbdff036629d3153d93f4e3d}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Triangle\+Geometry\+Get\+Vertex\+Normals} (A\+S\+G\+Triangle\+Geometry geom, float $\ast$$\ast$vertex\+Normals)
+\item 
+\mbox{\Hypertarget{asg_8h_a8b6a851b8c0e4e1d878e7280e5f93d87}\label{asg_8h_a8b6a851b8c0e4e1d878e7280e5f93d87}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Triangle\+Geometry\+Get\+Vertex\+Colors} (A\+S\+G\+Triangle\+Geometry geom, float $\ast$$\ast$vertex\+Colors)
+\item 
+\mbox{\Hypertarget{asg_8h_aa67fcd078d6bc08bf66bdc25dc689489}\label{asg_8h_aa67fcd078d6bc08bf66bdc25dc689489}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Triangle\+Geometry\+Get\+Num\+Vertices} (A\+S\+G\+Triangle\+Geometry geom, uint32\+\_\+t $\ast$num\+Vertices)
+\item 
+\mbox{\Hypertarget{asg_8h_a892dac215074ef79a074fc10c1020575}\label{asg_8h_a892dac215074ef79a074fc10c1020575}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Triangle\+Geometry\+Get\+Indices} (A\+S\+G\+Triangle\+Geometry geom, uint32\+\_\+t $\ast$$\ast$indices)
+\item 
+\mbox{\Hypertarget{asg_8h_aad1c7ba546d3efdd954d6a980f424165}\label{asg_8h_aad1c7ba546d3efdd954d6a980f424165}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Triangle\+Geometry\+Get\+Num\+Indices} (A\+S\+G\+Triangle\+Geometry geom, uint32\+\_\+t $\ast$num\+Indices)
+\item 
+\mbox{\Hypertarget{asg_8h_ac8521ca834e0a8c79868f094da91ae72}\label{asg_8h_ac8521ca834e0a8c79868f094da91ae72}} 
+A\+S\+G\+A\+PI A\+S\+G\+Sphere\+Geometry {\bfseries asg\+New\+Sphere\+Geometry} (float $\ast$vertices, float $\ast$radii, float $\ast$vertex\+Colors, uint32\+\_\+t num\+Vertices, uint32\+\_\+t $\ast$indices, uint32\+\_\+t num\+Indices, float default\+Radius A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(1.f), A\+S\+G\+Free\+Func free\+Vertices A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL), A\+S\+G\+Free\+Func free\+Radii A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL), A\+S\+G\+Free\+Func free\+Colors A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL), A\+S\+G\+Free\+Func free\+Indices A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL))
+\item 
+\mbox{\Hypertarget{asg_8h_a93f88a9cae9a4d8f5baa06d7191ea961}\label{asg_8h_a93f88a9cae9a4d8f5baa06d7191ea961}} 
+A\+S\+G\+A\+PI A\+S\+G\+Cylinder\+Geometry {\bfseries asg\+New\+Cylinder\+Geometry} (float $\ast$vertices, float $\ast$radii, float $\ast$vertex\+Colors, uint8\+\_\+t $\ast$caps, uint32\+\_\+t num\+Vertices, uint32\+\_\+t $\ast$indices, uint32\+\_\+t num\+Indices, float default\+Radius A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(1.f), A\+S\+G\+Free\+Func free\+Vertices A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL), A\+S\+G\+Free\+Func free\+Radii A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL), A\+S\+G\+Free\+Func free\+Colors A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL), A\+S\+G\+Free\+Func free\+Caps A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL), A\+S\+G\+Free\+Func free\+Indices A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL))
+\item 
+\mbox{\Hypertarget{asg_8h_afc06e55afff06ca382375898f0175594}\label{asg_8h_afc06e55afff06ca382375898f0175594}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Geometry\+Compute\+Bounds} (A\+S\+G\+Geometry geom, float $\ast$minX, float $\ast$minY, float $\ast$minZ, float $\ast$maxX, float $\ast$maxY, float $\ast$maxZ)
+\item 
+\mbox{\Hypertarget{asg_8h_afb6c317f20c50b44a1176e10c25b02f9}\label{asg_8h_afb6c317f20c50b44a1176e10c25b02f9}} 
+A\+S\+G\+A\+PI A\+S\+G\+Surface {\bfseries asg\+New\+Surface} (A\+S\+G\+Geometry geom, A\+S\+G\+Material mat)
+\item 
+\mbox{\Hypertarget{asg_8h_a31b53b01e1dd8b81122033ff1003d310}\label{asg_8h_a31b53b01e1dd8b81122033ff1003d310}} 
+A\+S\+G\+A\+PI A\+S\+G\+Geometry {\bfseries asg\+Surface\+Get\+Geometry} (A\+S\+G\+Surface surf, A\+S\+G\+Geometry $\ast$geom)
+\item 
+\mbox{\Hypertarget{asg_8h_aed75be1a8daa63a7d1d4bc8d36972d2d}\label{asg_8h_aed75be1a8daa63a7d1d4bc8d36972d2d}} 
+A\+S\+G\+A\+PI A\+S\+G\+Material {\bfseries asg\+Surface\+Get\+Material} (A\+S\+G\+Surface surf, A\+S\+G\+Material $\ast$mat)
+\item 
+\mbox{\Hypertarget{asg_8h_aa25a4f7535d174e55ac808837fcfbc12}\label{asg_8h_aa25a4f7535d174e55ac808837fcfbc12}} 
+A\+S\+G\+A\+PI A\+S\+G\+Transform {\bfseries asg\+New\+Transform} (float initial\+Matrix\mbox{[}12\mbox{]}, A\+S\+G\+Matrix\+Format\+\_\+t format A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(A\+S\+G\+\_\+\+M\+A\+T\+R\+I\+X\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+C\+O\+L\+\_\+\+M\+A\+J\+OR))
+\item 
+\mbox{\Hypertarget{asg_8h_a2d2a84bb09a72642b8f8a955f95d0bd2}\label{asg_8h_a2d2a84bb09a72642b8f8a955f95d0bd2}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Transform\+Set\+Matrix} (A\+S\+G\+Transform trans, float matrix\mbox{[}12\mbox{]})
+\item 
+\mbox{\Hypertarget{asg_8h_a06372bb60ffecf632c911c7ca4c03bea}\label{asg_8h_a06372bb60ffecf632c911c7ca4c03bea}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Transform\+Get\+Matrix} (A\+S\+G\+Transform trans, float matrix\mbox{[}12\mbox{]})
+\item 
+\mbox{\Hypertarget{asg_8h_afc1cf8f537999601eb9adabb57669c1f}\label{asg_8h_afc1cf8f537999601eb9adabb57669c1f}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Transform\+Rotate} (A\+S\+G\+Transform trans, float axis\mbox{[}3\mbox{]}, float angle\+In\+Radians)
+\item 
+\mbox{\Hypertarget{asg_8h_adfeb701e3a7fed0424f6c276b8a66bec}\label{asg_8h_adfeb701e3a7fed0424f6c276b8a66bec}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Transform\+Translate} (A\+S\+G\+Transform trans, float xyz\mbox{[}3\mbox{]})
+\item 
+\mbox{\Hypertarget{asg_8h_a3d5d7b0359c4ed24582068eb971cabdd}\label{asg_8h_a3d5d7b0359c4ed24582068eb971cabdd}} 
+A\+S\+G\+A\+PI A\+S\+G\+Lookup\+Table1D {\bfseries asg\+New\+Lookup\+Table1D} (float $\ast$rgb, float $\ast$alpha, int32\+\_\+t num\+Entries, A\+S\+G\+Free\+Func free\+R\+GB A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL), A\+S\+G\+Free\+Func free\+Alpha A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL))
+\item 
+\mbox{\Hypertarget{asg_8h_ae2e427832f633682b668e28c90f9c06e}\label{asg_8h_ae2e427832f633682b668e28c90f9c06e}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Lookup\+Table1\+D\+Get\+R\+GB} (A\+S\+G\+Lookup\+Table1D lut, float $\ast$$\ast$rgb)
+\item 
+\mbox{\Hypertarget{asg_8h_a95d6252f82e8c12e88924f344483ed6e}\label{asg_8h_a95d6252f82e8c12e88924f344483ed6e}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Lookup\+Table1\+D\+Get\+Alpha} (A\+S\+G\+Lookup\+Table1D lut, float $\ast$$\ast$alpha)
+\item 
+\mbox{\Hypertarget{asg_8h_a92f423a734d06704029930fc37da84d6}\label{asg_8h_a92f423a734d06704029930fc37da84d6}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Lookup\+Table1\+D\+Get\+Num\+Entries} (A\+S\+G\+Lookup\+Table1D lut, int32\+\_\+t $\ast$num\+Entries)
+\item 
+\mbox{\Hypertarget{asg_8h_a46a3c291409f480929a440e301e7066f}\label{asg_8h_a46a3c291409f480929a440e301e7066f}} 
+A\+S\+G\+A\+PI A\+S\+G\+Structured\+Volume {\bfseries asg\+New\+Structured\+Volume} (void $\ast$data, int32\+\_\+t width, int32\+\_\+t height, int32\+\_\+t depth, A\+S\+G\+Data\+Type\+\_\+t type, A\+S\+G\+Free\+Func free\+Data A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL))
+\item 
+\mbox{\Hypertarget{asg_8h_ac180615f8e43cb32e3584fc771213628}\label{asg_8h_ac180615f8e43cb32e3584fc771213628}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Structured\+Volume\+Get\+Data} (A\+S\+G\+Structured\+Volume vol, void $\ast$$\ast$data)
+\item 
+\mbox{\Hypertarget{asg_8h_a1fe5841987f61c1fa10265a79109f949}\label{asg_8h_a1fe5841987f61c1fa10265a79109f949}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Structured\+Volume\+Get\+Dims} (A\+S\+G\+Structured\+Volume vol, int32\+\_\+t $\ast$width, int32\+\_\+t $\ast$height, int32\+\_\+t $\ast$depth)
+\item 
+\mbox{\Hypertarget{asg_8h_a05d2cab6165291acfb99fccaa98721d1}\label{asg_8h_a05d2cab6165291acfb99fccaa98721d1}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Structured\+Volume\+Get\+Datatype} (A\+S\+G\+Structured\+Volume vol, A\+S\+G\+Data\+Type\+\_\+t $\ast$type)
+\item 
+\mbox{\Hypertarget{asg_8h_a4889706c3a3afecb99b252be20097b40}\label{asg_8h_a4889706c3a3afecb99b252be20097b40}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Structured\+Volume\+Set\+Range} (A\+S\+G\+Structured\+Volume vol, float range\+Min, float range\+Max)
+\item 
+\mbox{\Hypertarget{asg_8h_a6e13e32521307774a0cd441fa43e7a5f}\label{asg_8h_a6e13e32521307774a0cd441fa43e7a5f}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Structured\+Volume\+Get\+Range} (A\+S\+G\+Structured\+Volume vol, float $\ast$range\+Min, float $\ast$range\+Max)
+\item 
+\mbox{\Hypertarget{asg_8h_ad6c8c13f6bc24c5ed0b3229348523e4f}\label{asg_8h_ad6c8c13f6bc24c5ed0b3229348523e4f}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Structured\+Volume\+Set\+Dist} (A\+S\+G\+Structured\+Volume, float distX, float distY, float distZ)
+\item 
+\mbox{\Hypertarget{asg_8h_ad4a661ea6522bb4b0cf4696625fbdf77}\label{asg_8h_ad4a661ea6522bb4b0cf4696625fbdf77}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Structured\+Volume\+Get\+Dist} (A\+S\+G\+Structured\+Volume, float $\ast$distX, float $\ast$distY, float $\ast$distZ)
+\item 
+\mbox{\Hypertarget{asg_8h_a217df25c9cbcee754e3fdb328c31e27c}\label{asg_8h_a217df25c9cbcee754e3fdb328c31e27c}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Structured\+Volume\+Set\+Lookup\+Table1D} (A\+S\+G\+Structured\+Volume vol, A\+S\+G\+Lookup\+Table1D lut)
+\item 
+\mbox{\Hypertarget{asg_8h_a21858d47616d504c79ce26c65eb5e3d9}\label{asg_8h_a21858d47616d504c79ce26c65eb5e3d9}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Structured\+Volume\+Get\+Lookup\+Table1D} (A\+S\+G\+Structured\+Volume vol, A\+S\+G\+Lookup\+Table1D $\ast$lut)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Load\+A\+S\+S\+I\+MP} (A\+S\+G\+Object obj, const char $\ast$file\+Name, uint64\+\_\+t flags)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Load\+P\+B\+RT} (A\+S\+G\+Object obj, const char $\ast$file\+Name, uint64\+\_\+t flags)
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Load\+V\+O\+L\+K\+IT} (A\+S\+G\+Structured\+Volume vol, const char $\ast$file\+Name, uint64\+\_\+t flags)
+\item 
+\mbox{\Hypertarget{asg_8h_a8ed8bc126f526aa198d085e3e8f78cfd}\label{asg_8h_a8ed8bc126f526aa198d085e3e8f78cfd}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Make\+Marschner\+Lobb} (A\+S\+G\+Structured\+Volume vol)
+\item 
+\mbox{\Hypertarget{asg_8h_a5086280e9f3b3566353ea7cfa47f17b6}\label{asg_8h_a5086280e9f3b3566353ea7cfa47f17b6}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Make\+Default\+L\+U\+T1D} (A\+S\+G\+Lookup\+Table1D lut, A\+S\+G\+Lut\+ID lut\+ID)
+\item 
+\mbox{\Hypertarget{asg_8h_a10f7f3934dfe1cecc8ba7fd07b915ca0}\label{asg_8h_a10f7f3934dfe1cecc8ba7fd07b915ca0}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Make\+Matte} (A\+S\+G\+Material $\ast$material, float kd\mbox{[}3\mbox{]}, A\+S\+G\+Sampler2D map\+KD A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(N\+U\+LL))
+\item 
+\mbox{\Hypertarget{asg_8h_a9df5c09aad683c20bfce4baf6b4a4ace}\label{asg_8h_a9df5c09aad683c20bfce4baf6b4a4ace}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Make\+Point\+Light} (A\+S\+G\+Light $\ast$light, float position\mbox{[}3\mbox{]}, float color\mbox{[}3\mbox{]}, float intensity A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(1.f))
+\item 
+\mbox{\Hypertarget{asg_8h_a9266aaf1a50f0b74a53aedd0484a6d61}\label{asg_8h_a9266aaf1a50f0b74a53aedd0484a6d61}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Compute\+Bounds} (A\+S\+G\+Object obj, float $\ast$minX, float $\ast$minY, float $\ast$minZ, float $\ast$maxX, float $\ast$maxY, float $\ast$maxZ, uint64\+\_\+t node\+Mask A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(0))
+\item 
+\mbox{\Hypertarget{asg_8h_a438bdd7554e41869b57abffdaa23067d}\label{asg_8h_a438bdd7554e41869b57abffdaa23067d}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Pick\+Object} (A\+S\+G\+Object obj, A\+S\+G\+Camera camera, uint32\+\_\+t x, uint32\+\_\+t y, uint32\+\_\+t frame\+SizeX, uint32\+\_\+t frame\+SizeY, A\+S\+G\+Object $\ast$picked\+Object, uint64\+\_\+t node\+Mask A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(0))
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t \mbox{\hyperlink{asg_8h_ae1e8df22422a928af61c4548c3748bd0}{asg\+Build\+A\+N\+A\+R\+I\+World}} (A\+S\+G\+Object obj, A\+N\+A\+R\+I\+Device device, A\+N\+A\+R\+I\+World world, A\+S\+G\+Build\+World\+Flags\+\_\+t flags A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(A\+S\+G\+\_\+\+B\+U\+I\+L\+D\+\_\+\+W\+O\+R\+L\+D\+\_\+\+F\+L\+A\+G\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+B\+U\+I\+LD), uint64\+\_\+t node\+Mask A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM(0))
+\end{DoxyCompactItemize}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+A\+S\+G\+A\+PI A\+S\+G\+Object \mbox{\hyperlink{asg_8h_a9f14be0db7dff049cdec37b0805f9967}{asg\+New\+Object}} ()
+\item 
+\mbox{\Hypertarget{asg_8h_a404dfdc9a3825884983d21b18b11554a}\label{asg_8h_a404dfdc9a3825884983d21b18b11554a}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Release} (A\+S\+G\+Object obj)
+\item 
+\mbox{\Hypertarget{asg_8h_a384722dc6ba7ec8c3e8e9859890fa982}\label{asg_8h_a384722dc6ba7ec8c3e8e9859890fa982}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Retain} (A\+S\+G\+Object obj)
+\item 
+\mbox{\Hypertarget{asg_8h_af446f0713a3bca6f0356c90ceb5ee89a}\label{asg_8h_af446f0713a3bca6f0356c90ceb5ee89a}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Get\+Type} (A\+S\+G\+Object obj, A\+S\+G\+Type\+\_\+t $\ast$type)
+\item 
+\mbox{\Hypertarget{asg_8h_a57cdf9052c8a6133c24171e73713abda}\label{asg_8h_a57cdf9052c8a6133c24171e73713abda}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Set\+Name} (A\+S\+G\+Object obj, const char $\ast$name)
+\item 
+\mbox{\Hypertarget{asg_8h_a6c94724a2d31b76bc6d524d66bc52c2e}\label{asg_8h_a6c94724a2d31b76bc6d524d66bc52c2e}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Get\+Name} (A\+S\+G\+Object obj, const char $\ast$$\ast$name)
+\item 
+\mbox{\Hypertarget{asg_8h_ad84bacca9f98736fca46ac0f83cbf695}\label{asg_8h_ad84bacca9f98736fca46ac0f83cbf695}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Add\+Child} (A\+S\+G\+Object obj, A\+S\+G\+Object child)
+\item 
+\mbox{\Hypertarget{asg_8h_a43a3dbf20227e29980e22e06f8c171c0}\label{asg_8h_a43a3dbf20227e29980e22e06f8c171c0}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Set\+Child} (A\+S\+G\+Object obj, int child\+ID, A\+S\+G\+Object child)
+\item 
+\mbox{\Hypertarget{asg_8h_afab6620476ed4747cd3af9e4fdec96d3}\label{asg_8h_afab6620476ed4747cd3af9e4fdec96d3}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Get\+Child} (A\+S\+G\+Object obj, int child\+ID, A\+S\+G\+Object $\ast$child)
+\item 
+\mbox{\Hypertarget{asg_8h_a35e59d9405c42b043695b50db2223d1d}\label{asg_8h_a35e59d9405c42b043695b50db2223d1d}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Get\+Children} (A\+S\+G\+Object obj, A\+S\+G\+Object $\ast$children, int $\ast$num\+Children)
+\item 
+\mbox{\Hypertarget{asg_8h_a77a1707e7349a04c649a4bf1139f3a17}\label{asg_8h_a77a1707e7349a04c649a4bf1139f3a17}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Remove\+Child} (A\+S\+G\+Object obj, A\+S\+G\+Object child)
+\item 
+\mbox{\Hypertarget{asg_8h_a291a9a28b9bc96dac47dc57ab10e0b32}\label{asg_8h_a291a9a28b9bc96dac47dc57ab10e0b32}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Remove\+Child\+At} (A\+S\+G\+Object obj, int child\+ID)
+\item 
+\mbox{\Hypertarget{asg_8h_acf5ed35aef1c82d616ce2d70a2d4fa9d}\label{asg_8h_acf5ed35aef1c82d616ce2d70a2d4fa9d}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Get\+Parent} (A\+S\+G\+Object obj, int parent\+ID, A\+S\+G\+Object $\ast$parent)
+\item 
+\mbox{\Hypertarget{asg_8h_a49b532e1302f52a4955e457516af0564}\label{asg_8h_a49b532e1302f52a4955e457516af0564}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Get\+Parents} (A\+S\+G\+Object obj, A\+S\+G\+Object $\ast$parents, int $\ast$num\+Parents)
+\item 
+\mbox{\Hypertarget{asg_8h_aaba3db1df0a0e4805aa745bfdc7db71e}\label{asg_8h_aaba3db1df0a0e4805aa745bfdc7db71e}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Get\+Child\+Paths} (A\+S\+G\+Object obj, A\+S\+G\+Object target, A\+S\+G\+Object $\ast$$\ast$paths, int $\ast$$\ast$path\+Lengths, int $\ast$num\+Paths)
+\item 
+\mbox{\Hypertarget{asg_8h_afac2d72f5a4bef22348d968f73832dce}\label{asg_8h_afac2d72f5a4bef22348d968f73832dce}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Get\+Parent\+Paths} (A\+S\+G\+Object obj, A\+S\+G\+Object target, A\+S\+G\+Object $\ast$$\ast$paths, int $\ast$$\ast$path\+Lengths, int $\ast$num\+Paths)
+\item 
+\mbox{\Hypertarget{asg_8h_a3fbbe78cebaa1e4573fbbe3bcfd123e8}\label{asg_8h_a3fbbe78cebaa1e4573fbbe3bcfd123e8}} 
+A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t {\bfseries asg\+Object\+Accept} (A\+S\+G\+Object obj, A\+S\+G\+Visitor visitor)
+\end{DoxyCompactItemize}
+
+
+
+\doxysubsection{Detailed Description}
+A\+N\+A\+RI Scene Graph (A\+SG) C99 A\+PI 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{asg_8h_ae1e8df22422a928af61c4548c3748bd0}\label{asg_8h_ae1e8df22422a928af61c4548c3748bd0}} 
+\index{asg.h@{asg.h}!asgBuildANARIWorld@{asgBuildANARIWorld}}
+\index{asgBuildANARIWorld@{asgBuildANARIWorld}!asg.h@{asg.h}}
+\doxysubsubsection{\texorpdfstring{asgBuildANARIWorld()}{asgBuildANARIWorld()}}
+{\footnotesize\ttfamily A\+S\+G\+A\+PI A\+S\+G\+Error\+\_\+t asg\+Build\+A\+N\+A\+R\+I\+World (\begin{DoxyParamCaption}\item[{A\+S\+G\+Object}]{obj,  }\item[{A\+N\+A\+R\+I\+Device}]{device,  }\item[{A\+N\+A\+R\+I\+World}]{world,  }\item[{A\+S\+G\+Build\+World\+Flags\+\_\+t flags }]{A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AMA\+S\+G\+\_\+\+B\+U\+I\+L\+D\+\_\+\+W\+O\+R\+L\+D\+\_\+\+F\+L\+A\+G\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+B\+U\+I\+LD,  }\item[{uint64\+\_\+t node\+Mask }]{A\+S\+G\+\_\+\+D\+F\+L\+T\+\_\+\+P\+A\+R\+AM0 }\end{DoxyParamCaption})}
+
+Build A\+N\+A\+RI world from A\+SG subgraph Visits the subgraph induced by
+\begin{DoxyParams}{Parameters}
+{\em obj} & and updates the A\+N\+A\+RI world accordingly. The routine tries to only update those nodes that have the dirty flag set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{asg_8h_a9f14be0db7dff049cdec37b0805f9967}\label{asg_8h_a9f14be0db7dff049cdec37b0805f9967}} 
+\index{asg.h@{asg.h}!asgNewObject@{asgNewObject}}
+\index{asgNewObject@{asgNewObject}!asg.h@{asg.h}}
+\doxysubsubsection{\texorpdfstring{asgNewObject()}{asgNewObject()}}
+{\footnotesize\ttfamily A\+S\+G\+A\+PI A\+S\+G\+Object asg\+New\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\#defgroup A\+S\+G\+Object Ref-\/counted objects These are the base type that scene graphs are composed of; objects follow the same ref counting semantics as A\+N\+A\+RI. Every object in the scene graph derives from this common object type. Constructor functions are denoted asg\+New\+X\+X\+X(), where X\+XX is the name of the type; this naming scheme indicates that the type is derived from A\+S\+G\+Object 

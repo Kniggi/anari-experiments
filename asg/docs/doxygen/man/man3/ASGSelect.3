@@ -1,0 +1,47 @@
+.TH "ASGSelect" 3 "Thu Apr 7 2022" "ANARI Scene Graph" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ASGSelect \- Select nodes are group nodes that store a visibility flag for each child node ANARI groups/worlds\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "ASGAPI ASGSelect \fBasgNewSelect\fP (ASGBool_t defaultVisibility ASG_DFLT_PARAM(ASG_TRUE))"
+.br
+.ti -1c
+.RI "ASGAPI ASGError_t \fBasgSelectSetDefaultVisibility\fP (ASGSelect select, ASGBool_t defaultVisibility)"
+.br
+.ti -1c
+.RI "ASGAPI ASGError_t \fBasgSelectGetDefaultVisibility\fP (ASGSelect select, ASGBool_t *defaultVisibility)"
+.br
+.ti -1c
+.RI "ASGAPI ASGError_t \fBasgSelectSetChildVisible\fP (ASGSelect select, int childID, ASGBool_t visible)"
+.br
+.ti -1c
+.RI "ASGAPI ASGError_t \fBasgSelectGetChildVisible\fP (ASGSelect select, int childID, ASGBool_t *visible)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Select nodes are group nodes that store a visibility flag for each child node ANARI groups/worlds\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "ASGAPI ASGSelect asgNewSelect (ASGBool_t defaultVisibility  ASG_DFLT_PARAMASG_TRUE)"
+Construct select node\&. Subtrees that are set to invisible are later culled by visitors\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIdefaultVisibility\fP Visibility assigned to newly added children 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ANARI Scene Graph from the source code\&.

@@ -1,0 +1,1809 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "volkit/src/3rdparty/visionaray/src/visionaray/libvisionaray.a"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"visionaray_add_library",
+			"install",
+			"target_compile_options",
+			"visionaray_target_set_warnings",
+			"include_directories",
+			"visionaray_use_package"
+		],
+		"files" : 
+		[
+			"volkit/src/3rdparty/visionaray/cmake/modules/VisionarayAddTarget.cmake",
+			"volkit/src/3rdparty/visionaray/src/visionaray/CMakeLists.txt",
+			"volkit/src/3rdparty/visionaray/cmake/modules/VisionarayUsePackage.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 374,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 100,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 408,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 101,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 19,
+				"parent" : 4
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 29,
+				"parent" : 4
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 32,
+				"parent" : 4
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 45,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 338,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 339,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 25,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 38,
+				"parent" : 11
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -fPIC -g   -Wmissing-braces -Wsign-compare -Wwrite-strings -Woverloaded-virtual -Wundef -Wall -Wextra -pedantic -Wno-ignored-attributes"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wmissing-braces"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wsign-compare"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wwrite-strings"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Woverloaded-virtual"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wundef"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "-pedantic"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wno-ignored-attributes"
+				},
+				{
+					"fragment" : "-std=gnu++14"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"define" : "VIRVO_STATIC"
+				},
+				{
+					"define" : "VKT_STATIC"
+				},
+				{
+					"define" : "VSNRAY_STATIC"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 9,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/volkit/src/3rdparty/visionaray/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/home/niklas/Schreibtisch/gitrepo/anari-experiments/build/volkit/src/3rdparty/visionaray/config"
+				},
+				{
+					"backtrace" : 12,
+					"isSystem" : true,
+					"path" : "/usr/local/cuda-11.5/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					2
+				],
+				"standard" : "14"
+			},
+			"sourceIndexes" : 
+			[
+				248,
+				249,
+				250,
+				251,
+				252,
+				253,
+				254,
+				255
+			]
+		}
+	],
+	"id" : "visionaray::@8f9e7d30df6ccfbaef7c",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 3,
+				"path" : "lib"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
+	"name" : "visionaray",
+	"nameOnDisk" : "libvisionaray.a",
+	"paths" : 
+	{
+		"build" : "volkit/src/3rdparty/visionaray/src/visionaray",
+		"source" : "volkit/src/3rdparty/visionaray/src/visionaray"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				96,
+				97,
+				98,
+				99,
+				100,
+				101,
+				102,
+				103,
+				104,
+				105,
+				106,
+				107,
+				108,
+				109,
+				110,
+				111,
+				112,
+				113,
+				114,
+				115,
+				116,
+				117,
+				118,
+				119,
+				120,
+				121,
+				122,
+				123,
+				124,
+				125,
+				126,
+				127,
+				128,
+				129,
+				130,
+				131,
+				132,
+				133,
+				134,
+				135,
+				136,
+				137,
+				138,
+				139,
+				140,
+				141,
+				142,
+				143,
+				144,
+				145,
+				146,
+				147,
+				148,
+				149,
+				150,
+				151,
+				152,
+				153,
+				154,
+				155,
+				156,
+				157,
+				158,
+				159,
+				160,
+				161,
+				162,
+				163,
+				164,
+				165,
+				166,
+				167,
+				168,
+				169,
+				170,
+				171,
+				172,
+				173,
+				174,
+				175,
+				176,
+				177,
+				178,
+				179,
+				180,
+				181,
+				182,
+				183,
+				184,
+				185,
+				186,
+				187,
+				188,
+				189,
+				190,
+				191,
+				192,
+				193,
+				194,
+				195,
+				196,
+				197,
+				198,
+				199,
+				200,
+				201,
+				202,
+				203,
+				204,
+				205,
+				206,
+				207,
+				208,
+				209,
+				210,
+				211,
+				212,
+				213,
+				214,
+				215,
+				216,
+				217,
+				218,
+				219,
+				220,
+				221,
+				222,
+				223,
+				224,
+				225,
+				226,
+				227,
+				228,
+				229,
+				230,
+				231,
+				232,
+				233,
+				234,
+				235,
+				236,
+				237,
+				238,
+				239,
+				240,
+				241,
+				242,
+				243,
+				244,
+				245,
+				246,
+				247
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				248,
+				249,
+				250,
+				251,
+				252,
+				253,
+				254,
+				255,
+				256
+			]
+		},
+		{
+			"name" : "Object Files",
+			"sourceIndexes" : 
+			[
+				257
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"path" : "build/volkit/src/3rdparty/visionaray/config/visionaray/config.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/build.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/build_top_down.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/get_bounds.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/get_color.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/get_normal.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/get_tex_coord.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/hit_record.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/intersect.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/lbvh.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/prim_traits.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/sah.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/statistics.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/bvh/traverse.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/generic_primitive/get_color.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/generic_primitive/get_normal.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/generic_primitive/get_tex_coord.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/material/disney.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/material/emissive.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/material/matte.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/material/metal.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/material/mirror.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/material/plastic.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/spd/blackbody.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/spd/d65.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/spd/measured.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/algorithm.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/aligned_allocator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/ambient_light.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/area_light.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/array.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/basic_sched.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/basic_sched.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/color_conversion.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/compiler.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/cpu_buffer_rt.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/cuda_sched.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/cuda_sched.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/environment_light.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/exit_traversal.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/generic_light.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/generic_material.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/generic_primitive.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/gpu_buffer_rt.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/macros.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/material.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/matrix_camera.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/multi_hit.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/parallel_algorithm.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/parallel_for.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/pathtracing.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/pinhole_camera.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/pixel_access.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/pixel_unpack_buffer_rt.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/platform.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/point_light.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/range.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/sched_common.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/semaphore.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/simple.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/simple_buffer_rt.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/simple_gpu_buffer_rt.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/simple_sched.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/simple_sched.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/spectrum.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/spot_light.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/stack.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/surface.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/tags.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/tbb_sched.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/thin_lens_camera.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/tiled_sched.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/thread_pool.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/traversal_result.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/traverse_linear.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/detail/whitted.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/gl/compositing.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/gl/handle.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/gl/program.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/gl/shader.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/gl/util.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/aabb.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/cylinder.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/fixed.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/limits.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/math.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/matrix.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/matrix2.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/matrix3.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/matrix4.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/matrix4x3.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/plane.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/quaternion.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/ray.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/rectangle.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/snorm.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/sphere.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/triangle.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/unorm.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/vector.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/vector2.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/vector3.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/vector4.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/detail/vector4f.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/avx/int8.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/avx/float8.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/avx/mask8.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/avx512/int16.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/avx512/float16.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/avx512/mask16.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/builtin/int4.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/builtin/int8.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/builtin/int16.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/builtin/float4.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/builtin/float8.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/builtin/float16.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/builtin/mask4.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/builtin/mask8.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/builtin/mask16.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/neon/int4.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/neon/float4.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/neon/mask4.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/sse/int4.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/sse/float4.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/sse/mask4.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/basic_float.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/basic_int.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/basic_mask.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/detail/common.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/avx.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/avx512.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/forward.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/gather.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/intrinsics.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/simd.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/sse.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/trans.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/simd/type_traits.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/aabb.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/axis.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/config.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/constants.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/cylinder.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/fixed.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/forward.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/intersect.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/io.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/limits.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/math.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/matrix.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/norm.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/primitive.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/project.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/plane.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/quaternion.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/ray.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/rectangle.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/snorm.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/sphere.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/triangle.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/unorm.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/math/vector.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/filter/arithmetic_types.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/filter/common.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/filter/cubic.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/filter/cubic_opt.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/filter/linear.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/filter/nearest.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/storage_types/aligned_storage.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/storage_types/pointer_storage.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/cuda_texture.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/cuda_texture1d.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/cuda_texture2d.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/cuda_texture3d.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/filter.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/tex_fetch.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/detail/texture_common.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/texture.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/texture/texture_traits.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/aligned_vector.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/ambient_light.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/area_light.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/array.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/array_ref.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/brdf.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/bvh.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/cpu_buffer_rt.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/environment_light.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/export.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/fresnel.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/generic_light.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/generic_material.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/generic_primitive.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/get_area.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/get_color.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/get_normal.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/get_primitive.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/get_shading_normal.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/get_surface.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/get_tex_coord.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/gpu_buffer_rt.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/intersector.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/kernels.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/light_sample.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/make_generator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/make_random_seed.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/material.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/matrix_camera.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/medium.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/morton.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/packet_traits.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/phase_function.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/pinhole_camera.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/pixel_format.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/pixel_sampler_types.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/pixel_traits.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/pixel_unpack_buffer_rt.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/point_light.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/prim_traits.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/random_generator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/render_target.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/result_record.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/sampling.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/scheduler.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/shade_record.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/simple_buffer_rt.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/simple_gpu_buffer_rt.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/spectrum.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/spot_light.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/surface.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/surface_interaction.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/swizzle.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/tags.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/thin_lens_camera.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/traverse.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/update_if.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/variant.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/version.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/cuda/array.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/cuda/cast.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/cuda/counting_sort.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/cuda/fill.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/cuda/graphics_resource.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/cuda/pitch2d.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/cuda/pixel_pack_buffer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/cuda/safe_call.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/cuda/texture_object.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/include/visionaray/cuda/util.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/visionaray/gl/compositing.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/visionaray/gl/handle.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/visionaray/gl/program.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/visionaray/gl/shader.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/visionaray/gl/util.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/visionaray/pixel_format.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/visionaray/cuda/graphics_resource.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "volkit/src/3rdparty/visionaray/src/visionaray/cuda/pixel_pack_buffer.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "volkit/src/3rdparty/visionaray/src/visionaray/cuda/fill.cu",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"isGenerated" : true,
+			"path" : "build/volkit/src/3rdparty/visionaray/src/visionaray/CMakeFiles/cuda_compile_1.dir/cuda/cuda_compile_1_generated_fill.cu.o",
+			"sourceGroupIndex" : 2
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

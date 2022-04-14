@@ -1,0 +1,27 @@
+.TH "ASGVisitor" 3 "Thu Apr 7 2022" "ANARI Scene Graph" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ASGVisitor
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "ASGAPI ASGVisitor \fBasgCreateVisitor\fP (void(*visitFunc)(ASGVisitor, ASGObject, void *), void *userData, ASGVisitorTraversalType_t traversalType)"
+.br
+.ti -1c
+.RI "ASGAPI ASGError_t \fBasgDestroyVisitor\fP (ASGVisitor visitor)"
+.br
+.ti -1c
+.RI "ASGAPI ASGError_t \fBasgVisitorApply\fP (ASGVisitor visitor, ASGObject obj)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ANARI Scene Graph from the source code\&.

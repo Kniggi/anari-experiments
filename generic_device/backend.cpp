@@ -110,6 +110,7 @@ namespace generic {
                 sRGB = srgb;
             }
 
+          
             thread_pool pool{std::thread::hardware_concurrency()};
 
             cpu_buffer_rt<PF_RGBA32F, PF_DEPTH32F, PF_RGBA32F> accumBuffer;
@@ -753,6 +754,7 @@ namespace generic {
                 }
             }
 
+            
             Algorithm algorithm;
             vec4f backgroundColor;
             tiled_sched<ray> sched{std::thread::hardware_concurrency()};
@@ -829,6 +831,7 @@ namespace generic {
 
     //--- API ---------------------------------------------
     namespace backend {
+
 
         void commit(generic::Object& obj)
         {
@@ -1641,7 +1644,9 @@ namespace generic {
                     (*fit)->updated = (*rit)->updated = (*cit)->updated = false;
                 }
                 (*rit)->renderFrame(**fit,(*cit)->impl,**wit);
+               
                 auto end = std::chrono::steady_clock::now();
+                frame.invokeContinuation(nullptr);
                 frame.duration = std::chrono::duration<float>(end - start).count();
             });
         }
