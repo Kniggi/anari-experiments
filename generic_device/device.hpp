@@ -144,10 +144,7 @@ namespace generic {
     public:
         Device();
        ~Device();
-    private:
-        int m_numThreads{1};
     };
-    
 
 } // generic
 
