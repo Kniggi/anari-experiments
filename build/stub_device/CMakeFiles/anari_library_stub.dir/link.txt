@@ -1,1 +1,0 @@
-/bin/x86_64-linux-gnu-g++-9 -fPIC -g -shared -Wl,-soname,libanari_library_stub.so -o libanari_library_stub.so CMakeFiles/anari_library_stub.dir/device.o   -L/usr/local/lib  -Wl,-rpath,/usr/local/lib /usr/local/lib/libanari.so.0.1.0 -ldl 

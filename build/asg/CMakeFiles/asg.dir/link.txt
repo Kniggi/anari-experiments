@@ -1,2 +1,0 @@
-/bin/x86_64-linux-gnu-ar qc libasg.a CMakeFiles/asg.dir/asg.o
-/bin/x86_64-linux-gnu-ranlib libasg.a

@@ -40,7 +40,7 @@ void statusFunc(void *userData,
     else if (severity == ANARI_SEVERITY_INFO)
         fprintf(stderr, "[INFO] %s\n", message);
 }
-void frame_continuation_callback(void *w, ANARIDevice dev, ANARIFrame frame);
+static void frame_continuation_callback(void *w, ANARIDevice dev, ANARIFrame frame);
 struct Viewer : visionaray::viewer_glut
 {
     visionaray::pinhole_camera cam;
@@ -143,71 +143,64 @@ struct Viewer : visionaray::viewer_glut
         anariCommit(anari.device, anari.headLight);
         anariCommit(anari.device, anari.world);
     }
-
-    void on_display() {
-        if (anari.frame != nullptr){
-                float duration = 0.f;
-            if (anariGetProperty(anari.device, anari.frame, "duration", ANARI_FLOAT32, &duration, sizeof(duration), ANARI_NO_WAIT)) {
-                std::stringstream str;
-                str << std::setprecision(2);
-                str << std::fixed;
-                str << 1.f/duration << " FPS";
-                std::string fpsStr = str.str();
-                set_window_title(fpsStr.c_str());
-            }
-
+    void frame_show(){
+        bool debugDepth = false;
+        if(!debugDepth){
             anari.scene->beforeRenderFrame();
-
-            int spp=1;
-        
-            if(!anari.frame_callback_extension){
-                for (int frames = 0; frames < spp; frames++) {
-                    anariRenderFrame(anari.device, anari.frame);
-                    anariFrameReady(anari.device, anari.frame, ANARI_WAIT);
-                }
-            }
+            const uint32_t *fbPointer = (uint32_t *)anariMapFrame(anari.device, anari.frame, "color");
+            anari.pixelBuffer.resize(currentFrameSize.x * currentFrameSize.y*sizeof(float));
+            memcpy(anari.pixelBuffer.data(),fbPointer,currentFrameSize.x * currentFrameSize.y*sizeof(float));
+            prevFrameSize = currentFrameSize;
+            anariUnmapFrame(anari.device, anari.frame, "color");
+        }
+        else{
+            const float *dbPointer = (float *)anariMapFrame(anari.device, anari.frame, "depth");
+            float *cpy = (float *)malloc(currentFrameSize.x *currentFrameSize.y*sizeof(float));
+            anari.pixelBuffer.resize(currentFrameSize.x * currentFrameSize.y*sizeof(float));
+            memcpy(anari.pixelBuffer.data(),dbPointer,currentFrameSize.x * currentFrameSize.y*sizeof(float));
             
-
+            float max = 0.f;
+            for (int i=0; i<currentFrameSize.x * currentFrameSize.y; ++i) {
+                if (!std::isinf(anari.pixelBuffer.at(i)))
+                    max = std::max(max,(float)anari.pixelBuffer.at(i));
+            }
+            for (int i=0; i<currentFrameSize.x * currentFrameSize.y; ++i) {
+                anari.pixelBuffer.at(i) /= max;
+            }
+        }
+    }
+    void on_display() {
+        float duration = 0.f;
+        if (anariGetProperty(anari.device, anari.frame, "duration", ANARI_FLOAT32, &duration, sizeof(duration), ANARI_NO_WAIT)) {
+            std::stringstream str;
+            str << std::setprecision(2);
+            str << std::fixed;
+            str << 1.f/duration << " FPS";
+            std::string fpsStr = str.str();
+            set_window_title(fpsStr.c_str());
+        }
+        if(!anari.pixelBuffer.empty()){
             bool debugDepth = false;
-
             if (!debugDepth) {
-                const uint32_t *fbPointer = (uint32_t *)anariMapFrame(anari.device, anari.frame, "color");
                 visionaray::vec4f bgColor(background_color(),1.f);
                 glClearColor(bgColor[0],bgColor[1],bgColor[2],bgColor[3]);
                 glClear(GL_COLOR_BUFFER_BIT);
                 glEnable(GL_BLEND);
                 glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-                glDrawPixels(currentFrameSize.x,currentFrameSize.y,GL_RGBA,GL_UNSIGNED_BYTE,fbPointer);
+                glDrawPixels(currentFrameSize.x,currentFrameSize.y,GL_RGBA,GL_UNSIGNED_BYTE,anari.pixelBuffer.data());
                 anariUnmapFrame(anari.device, anari.frame, "color");
             } else {
-                const float *dbPointer = (float *)anariMapFrame(anari.device, anari.frame, "depth");
-                float *cpy = (float *)malloc(currentFrameSize.x *currentFrameSize.y*sizeof(float));
-                memcpy(cpy,dbPointer,currentFrameSize.x * currentFrameSize.y*sizeof(float));
-                float max = 0.f;
-                for (int i=0; i<currentFrameSize.x * currentFrameSize.y; ++i) {
-                    if (!std::isinf(cpy[i]))
-                        max = std::max(max,cpy[i]);
-                }
-                for (int i=0; i<currentFrameSize.x * currentFrameSize.y; ++i) {
-                    cpy[i] /= max;
-                }
-                prevFrameSize = currentFrameSize;
                 glClear(GL_DEPTH_BUFFER_BIT);
-                glDrawPixels(currentFrameSize.x,currentFrameSize.y,GL_LUMINANCE,GL_FLOAT,cpy);
+                glDrawPixels(currentFrameSize.x,currentFrameSize.y,GL_LUMINANCE,GL_FLOAT,anari.pixelBuffer.data());
                 anariUnmapFrame(anari.device, anari.frame, "depth");
             }
-
-            anari.scene->afterRenderFrame();
-
-            anari.scene->renderUI(cam);
-
-            anari.scene->afterRenderUI();
-
-            if (anari.scene->needFrameReset())
-                anariCommit(anari.device,anari.camera); // provoke frame reset
-           
         }
         
+        anari.scene->renderUI(cam);
+        anari.scene->afterRenderUI();
+        
+        if (anari.scene->needFrameReset())
+            anariCommit(anari.device,anari.camera); // provoke frame reset
     }
 
     void on_resize(int w, int h) {
@@ -272,6 +265,7 @@ struct Viewer : visionaray::viewer_glut
         Scene* scene = nullptr;
         std::string deviceSubtype;
         bool frame_callback_extension = false;
+        std::vector<unsigned char> pixelBuffer;
 
 
         void init(Viewer &instance) {
@@ -331,15 +325,15 @@ struct Viewer : visionaray::viewer_glut
             //anariSetParameter(device, renderer, "aoSamples", ANARI_INT32, &aoSamples);
             frame = anariNewFrame(device);
             anariSetParameter(device, frame, "world", ANARI_WORLD, &world);
-            frame_callback_extension = anariDeviceImplements(device, ANARI_KHR_FRAME_COMPLETION_CALLBACK);
-            // if(frame_callback_extension){
-            //     anariSetParameter(
-            //     device, frame, "frameCompletionCallback", ANARI_FRAME_COMPLETION_CALLBACK, (void*)(*frame_continuation_callback));
-            //     anariSetParameter(
-            //     device, frame, "frameCompletionCallbackUserData",ANARI_VOID_POINTER, (void*)this);
-            // }
             //implement frame continuation callback
-            
+            frame_callback_extension = anariDeviceImplements(device, ANARI_KHR_FRAME_COMPLETION_CALLBACK);
+            static ANARIFrameCompletionCallback fcb = &frame_continuation_callback;
+            if(frame_callback_extension){
+                anariSetParameter(
+                device, frame, "frameCompletionCallback", ANARI_FRAME_COMPLETION_CALLBACK, &fcb);
+                anariSetParameter(
+                device, frame, "frameCompletionCallbackUserData",ANARI_VOID_POINTER, (void*)&instance);
+            }
             
             anariCommit(device, frame);
             //ANARIDataType fbFormat = ANARI_UFIXED8_VEC4;
@@ -371,17 +365,16 @@ struct Viewer : visionaray::viewer_glut
         }
     } anari;
 };
-void frame_continuation_callback(void *w, ANARIDevice dev, ANARIFrame frame)
+static void frame_continuation_callback(void *w, ANARIDevice dev, ANARIFrame frame)
     {
- 
-        auto *window = (Viewer*)w;
-        if(frame!= nullptr){
+        Viewer* window = (Viewer*)w;
+        if (frame != nullptr){
             window->anari.frame = frame;
-            window->on_display();
-            window->currentFrameSize = window->nextFrameSize;
-                 anariRenderFrame(window->anari.device, frame);
-                      
+            window->frame_show();
         }
+        window->currentFrameSize = window->nextFrameSize;
+        anariRenderFrame(window->anari.device,  window->anari.frame);
+        window->anari.scene->afterRenderFrame();
     }
 int main(int argc, char** argv)
 {
