@@ -42,7 +42,8 @@ namespace generic {
         unsigned size[2] = {0,0};
         ANARIDataType color;
         ANARIDataType depth;
-
+        ANARIFrameCompletionCallback frame_completion_callback = nullptr;
+        void* frame_completion_callback_user_data = nullptr;
         std::future<void> renderFuture;
 
         // last duration for rendering
