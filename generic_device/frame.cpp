@@ -60,6 +60,10 @@ namespace generic {
             memcpy(&color,mem,sizeof(color));
         } else if (strncmp(name,"depth",5)==0 && type==ANARI_DATA_TYPE) {
             memcpy(&depth,mem,sizeof(depth));
+        } else if (strncmp(name,"frameCompletionCallback",23)==0 && type==ANARI_FRAME_COMPLETION_CALLBACK) {
+            memcpy(&frame_completion_callback,mem,sizeof(frame_completion_callback));
+        } else if (strncmp(name,"frameCompletionCallbackUserData",31)==0 && type==ANARI_VOID_POINTER) {
+            memcpy(&frame_completion_callback_user_data,mem,sizeof(frame_completion_callback_user_data));
         } else {
             LOG(logging::Level::Warning) << "Frame: Unsupported parameter "
                 << "/ parameter type: " << name << " / " << type;

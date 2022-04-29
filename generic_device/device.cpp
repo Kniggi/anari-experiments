@@ -22,7 +22,11 @@ namespace generic {
 
     int Device::deviceImplements(const char* extensions)
     {
-        return 0;
+        std::string extension = extensions;
+        if (extension == ANARI_KHR_FRAME_COMPLETION_CALLBACK)
+            return 1;
+        else
+            return 0;
     }
 
     void Device::deviceSetParameter(const char* id,
