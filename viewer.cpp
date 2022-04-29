@@ -146,7 +146,7 @@ struct Viewer : visionaray::viewer_glut
     void frame_show(){
         bool debugDepth = false;
         if(!debugDepth){
-            anari.scene->beforeRenderFrame();
+            
             const uint32_t *fbPointer = (uint32_t *)anariMapFrame(anari.device, anari.frame, "color");
             anari.pixelBuffer.resize(currentFrameSize.x * currentFrameSize.y*sizeof(float));
             memcpy(anari.pixelBuffer.data(),fbPointer,currentFrameSize.x * currentFrameSize.y*sizeof(float));
@@ -170,6 +170,7 @@ struct Viewer : visionaray::viewer_glut
         }
     }
     void on_display() {
+        anari.scene->beforeRenderFrame();
         float duration = 0.f;
         if (anariGetProperty(anari.device, anari.frame, "duration", ANARI_FLOAT32, &duration, sizeof(duration), ANARI_NO_WAIT)) {
             std::stringstream str;
@@ -201,6 +202,7 @@ struct Viewer : visionaray::viewer_glut
         
         if (anari.scene->needFrameReset())
             anariCommit(anari.device,anari.camera); // provoke frame reset
+        anari.scene->afterRenderFrame();
     }
 
     void on_resize(int w, int h) {
@@ -374,7 +376,7 @@ static void frame_continuation_callback(void *w, ANARIDevice dev, ANARIFrame fra
         }
         window->currentFrameSize = window->nextFrameSize;
         anariRenderFrame(window->anari.device,  window->anari.frame);
-        window->anari.scene->afterRenderFrame();
+      
     }
 int main(int argc, char** argv)
 {
