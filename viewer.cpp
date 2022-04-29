@@ -409,7 +409,6 @@ int main(int argc, char** argv)
     }
     // Repeatedly render the scene
     viewer.event_loop();
-    anariFrameReady(viewer.anari.device, viewer.anari.frame, ANARI_WAIT);
     viewer.anari.release();
 }
 
