@@ -18,7 +18,6 @@
 #include "scenes/grabber.h"
 #include "scenes.h"
 #include "util.h"
-#include <GL/glew.h>
 
 void statusFunc(void *userData,
     ANARIDevice device,
@@ -40,6 +39,7 @@ void statusFunc(void *userData,
     else if (severity == ANARI_SEVERITY_INFO)
         fprintf(stderr, "[INFO] %s\n", message);
 }
+
 static void frame_continuation_callback(void *w, ANARIDevice dev, ANARIFrame frame);
 struct Viewer : visionaray::viewer_glut
 {
@@ -51,6 +51,7 @@ struct Viewer : visionaray::viewer_glut
     visionaray::vec2i currentFrameSize{512,512};
     visionaray::vec2i nextFrameSize{0,0};
     visionaray::vec4f imageRegion{0.f,0.f,1.f,1.f};
+    std::vector<unsigned char> pixelBuffer;
 
     Viewer() : viewer_glut(512,512,"ANARI experiments") {
 
@@ -143,32 +144,9 @@ struct Viewer : visionaray::viewer_glut
         anariCommit(anari.device, anari.headLight);
         anariCommit(anari.device, anari.world);
     }
-    void frame_show(){
-        bool debugDepth = false;
-        if(!debugDepth){
-            
-            const uint32_t *fbPointer = (uint32_t *)anariMapFrame(anari.device, anari.frame, "color");
-            anari.pixelBuffer.resize(currentFrameSize.x * currentFrameSize.y*sizeof(float));
-            memcpy(anari.pixelBuffer.data(),fbPointer,currentFrameSize.x * currentFrameSize.y*sizeof(float));
-            prevFrameSize = currentFrameSize;
-            anariUnmapFrame(anari.device, anari.frame, "color");
-        }
-        else{
-            const float *dbPointer = (float *)anariMapFrame(anari.device, anari.frame, "depth");
-            float *cpy = (float *)malloc(currentFrameSize.x *currentFrameSize.y*sizeof(float));
-            anari.pixelBuffer.resize(currentFrameSize.x * currentFrameSize.y*sizeof(float));
-            memcpy(anari.pixelBuffer.data(),dbPointer,currentFrameSize.x * currentFrameSize.y*sizeof(float));
-            
-            float max = 0.f;
-            for (int i=0; i<currentFrameSize.x * currentFrameSize.y; ++i) {
-                if (!std::isinf(anari.pixelBuffer.at(i)))
-                    max = std::max(max,(float)anari.pixelBuffer.at(i));
-            }
-            for (int i=0; i<currentFrameSize.x * currentFrameSize.y; ++i) {
-                anari.pixelBuffer.at(i) /= max;
-            }
-        }
-    }
+
+    
+
     void on_display() {
         anari.scene->beforeRenderFrame();
         float duration = 0.f;
@@ -180,7 +158,7 @@ struct Viewer : visionaray::viewer_glut
             std::string fpsStr = str.str();
             set_window_title(fpsStr.c_str());
         }
-        if(!anari.pixelBuffer.empty()){
+        if(!pixelBuffer.empty()){
             bool debugDepth = false;
             if (!debugDepth) {
                 visionaray::vec4f bgColor(background_color(),1.f);
@@ -188,11 +166,11 @@ struct Viewer : visionaray::viewer_glut
                 glClear(GL_COLOR_BUFFER_BIT);
                 glEnable(GL_BLEND);
                 glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-                glDrawPixels(currentFrameSize.x,currentFrameSize.y,GL_RGBA,GL_UNSIGNED_BYTE,anari.pixelBuffer.data());
+                glDrawPixels(currentFrameSize.x,currentFrameSize.y,GL_RGBA,GL_UNSIGNED_BYTE,pixelBuffer.data());
                 anariUnmapFrame(anari.device, anari.frame, "color");
             } else {
                 glClear(GL_DEPTH_BUFFER_BIT);
-                glDrawPixels(currentFrameSize.x,currentFrameSize.y,GL_LUMINANCE,GL_FLOAT,anari.pixelBuffer.data());
+                glDrawPixels(currentFrameSize.x,currentFrameSize.y,GL_LUMINANCE,GL_FLOAT,pixelBuffer.data());
                 anariUnmapFrame(anari.device, anari.frame, "depth");
             }
         }
@@ -256,7 +234,7 @@ struct Viewer : visionaray::viewer_glut
 
     struct {
         std::string libType = "environment";
-        std::string devType = "example";
+        std::string devType = "default";
         ANARILibrary library = nullptr;
         ANARIDevice device = nullptr;
         ANARIRenderer renderer = nullptr;
@@ -267,7 +245,7 @@ struct Viewer : visionaray::viewer_glut
         Scene* scene = nullptr;
         std::string deviceSubtype;
         bool frame_callback_extension = false;
-        std::vector<unsigned char> pixelBuffer;
+        
 
 
         void init(Viewer &instance) {
@@ -280,8 +258,6 @@ struct Viewer : visionaray::viewer_glut
                 throw std::runtime_error("Error creating new ANARY device");
             anariCommit(dev,dev);
             device = dev;
-
-            
             world = anariNewWorld(device);
             if (fileName.empty() || fileName=="volume-test")
                 scene = new VolumeScene(device,world);
@@ -322,7 +298,6 @@ struct Viewer : visionaray::viewer_glut
                 }
             }
             renderer = anariNewRenderer(device, "default");
-            
             //int aoSamples = 0;
             //anariSetParameter(device, renderer, "aoSamples", ANARI_INT32, &aoSamples);
             frame = anariNewFrame(device);
@@ -353,7 +328,6 @@ struct Viewer : visionaray::viewer_glut
 
         }
         
-        
         void release() {
             delete scene;
             anariRelease(device,frame);
@@ -367,17 +341,43 @@ struct Viewer : visionaray::viewer_glut
         }
     } anari;
 };
-static void frame_continuation_callback(void *w, ANARIDevice dev, ANARIFrame frame)
-    {
-        Viewer* window = (Viewer*)w;
-        if (frame != nullptr){
-            window->anari.frame = frame;
-            window->frame_show();
+void frame_show(ANARIDevice device, ANARIFrame frame, Viewer* viewer){
+        if(frame ==nullptr)
+          return;
+        bool debugDepth = false;
+        if(!debugDepth){
+            const uint32_t *fbPointer = (uint32_t *)anariMapFrame(device, frame, "color");
+            viewer->pixelBuffer.resize(viewer->currentFrameSize.x * viewer->currentFrameSize.y*sizeof(float));
+            memcpy(viewer->pixelBuffer.data(),fbPointer,viewer->currentFrameSize.x * viewer->currentFrameSize.y*sizeof(float));
+            viewer->prevFrameSize = viewer->currentFrameSize;
+            anariUnmapFrame(device, frame, "color");
         }
-        window->currentFrameSize = window->nextFrameSize;
-        anariRenderFrame(window->anari.device,  window->anari.frame);
+        else{
+            const float *dbPointer = (float *)anariMapFrame(device, frame, "depth");
+            float *cpy = (float *)malloc(viewer->currentFrameSize.x *viewer->currentFrameSize.y*sizeof(float));
+            viewer->pixelBuffer.resize(viewer->currentFrameSize.x * viewer->currentFrameSize.y*sizeof(float));
+            memcpy(viewer->pixelBuffer.data(),dbPointer,viewer->currentFrameSize.x * viewer->currentFrameSize.y*sizeof(float));
+            
+            float max = 0.f;
+            for (int i=0; i<viewer->currentFrameSize.x * viewer->currentFrameSize.y; ++i) {
+                if (!std::isinf(viewer->pixelBuffer.at(i)))
+                    max = std::max(max,(float)viewer->pixelBuffer.at(i));
+            }
+            for (int i=0; i<viewer->currentFrameSize.x * viewer->currentFrameSize.y; ++i) {
+                viewer->pixelBuffer.at(i) /= max;
+            }
+        }
+}
+static void frame_continuation_callback(void *w, ANARIDevice dev, ANARIFrame frame)
+{
+    Viewer* viewer = (Viewer*)w;
+    //window->anari.frame = frame;
+    frame_show(dev, frame,viewer);
+    viewer->currentFrameSize =viewer->nextFrameSize;
+    anariRenderFrame(viewer->anari.device, viewer->anari.frame);
       
-    }
+}
+
 int main(int argc, char** argv)
 {
     using namespace visionaray;
@@ -404,7 +404,6 @@ int main(int argc, char** argv)
     // Additional "Alt + LMB" pan manipulator for setups w/o middle mouse button
     viewer.add_manipulator(std::make_shared<pan_manipulator>(viewer.cam, mouse::Left, keyboard::Alt));
     viewer.add_manipulator(std::make_shared<zoom_manipulator>(viewer.cam, mouse::Right));
-
 
     if(viewer.anari.frame_callback_extension){
             frame_continuation_callback((void*)&viewer, viewer.anari.device, nullptr);
