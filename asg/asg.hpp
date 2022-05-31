@@ -55,6 +55,9 @@ namespace asg {
             void addChild(const std::shared_ptr<T>& child);
 
             std::shared_ptr<Object> getChild(int childID);
+
+            template <typename T>
+            void removeChild(const std::shared_ptr<T>& child);
         };
 
         class Geometry : public Object

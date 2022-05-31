@@ -646,11 +646,11 @@ struct Model : Scene
         ImGui::SetNextWindowViewport(viewport->ID);
 
         ImGuiWindowFlags window_flags = 0
-            | ImGuiWindowFlags_NoDocking 
-            | ImGuiWindowFlags_NoTitleBar 
-            | ImGuiWindowFlags_NoResize 
-            | ImGuiWindowFlags_NoMove 
-            | ImGuiWindowFlags_NoScrollbar 
+            | ImGuiWindowFlags_NoDocking
+            | ImGuiWindowFlags_NoTitleBar
+            | ImGuiWindowFlags_NoResize
+            | ImGuiWindowFlags_NoMove
+            | ImGuiWindowFlags_NoScrollbar
             | ImGuiWindowFlags_NoSavedSettings;
 
         ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.f);

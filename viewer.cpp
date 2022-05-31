@@ -244,8 +244,8 @@ struct Viewer : visionaray::viewer_glut
             resetANARIMainLight();
         }
         //if (!anari.scene->handleSpaceMouseMove(event))
-            viewer_glut::on_space_mouse_move(event);
     }
+
 
     struct {
         std::string libType = "environment";

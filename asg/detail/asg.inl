@@ -67,6 +67,11 @@ namespace asg {
             detail::errorFunc(asgObjectGetChild(handle,childID,&child));
             return std::shared_ptr<Object>(new Object(child));
         }
+        template <typename T>
+        inline void Object::removeChild(const std::shared_ptr<T>& child)
+        {
+            detail::errorFunc(asgObjectRemoveChild(handle,child.get()->handle));
+        }
 
 
 

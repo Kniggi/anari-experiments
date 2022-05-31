@@ -1,5 +1,5 @@
 #include <string.h>
-#include <anari/detail/Helpers.h>
+#include <anari/type_utility.h>
 #include "array.hpp"
 #include <iostream>
 
@@ -75,7 +75,7 @@ namespace generic {
 
     size_t Array1D::getSizeInBytes() const
     {
-        return numItems[0]*anari::sizeOfDataType(elementType);
+        return numItems[0]*anari::sizeOf(elementType);
     }
 
     //--- Array2D -----------------------------------------
@@ -104,7 +104,7 @@ namespace generic {
 
     size_t Array2D::getSizeInBytes() const
     {
-        return numItems[0]*numItems[1]*anari::sizeOfDataType(elementType);
+        return numItems[0]*numItems[1]*anari::sizeOf(elementType);
     }
 
     //--- Array3D -----------------------------------------
@@ -136,7 +136,7 @@ namespace generic {
 
     size_t Array3D::getSizeInBytes() const
     {
-        return numItems[0]*numItems[1]*numItems[2]*anari::sizeOfDataType(elementType);
+        return numItems[0]*numItems[1]*numItems[2]*anari::sizeOf(elementType);
     }
 
 } // generic

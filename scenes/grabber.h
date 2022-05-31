@@ -2,7 +2,7 @@
 
 #include <asg/asg.hpp>
 #include "../scenes.h"
-
+#include <visionaray/math/vector.h>
 namespace grabber
 {
     asg::TriangleGeometry makeCube(float width, float height, float depth)
@@ -225,7 +225,7 @@ struct Gameboard
                     m_squares[index] = InvalidField;
                 } else {
                     // all other squares are occupied by a piece
-                    m_squares[index] = OccupiedField; 
+                    m_squares[index] = OccupiedField;
                 }
 
                 index++;
@@ -299,6 +299,20 @@ struct Gameboard
             }
         }
     }
+    int index =0;
+    asg::Object getPieceAtPosition(visionaray::vec2i pos){
+
+        index++;
+
+
+        visionaray::vec3f piece_pos = getPositionOfPiece(index);
+        // if(pos.x >= piece_pos.x && pos.x <= piece_pos.x + s_pieceRadius
+        //   && pos.y >= piece_pos.y && pos.y <= piece_pos.y + s_pieceHeight)
+
+          return m_sceneGraph->getChild(index);
+        //else return nullptr;
+
+    }
 
     visionaray::vec3f getPositionOfPiece(int index)
     {
@@ -314,7 +328,7 @@ struct Gameboard
 
     // the edge length of one gameboard square
     constexpr static float s_squareWidth = 1.f;
-    // the height of one gameboard square 
+    // the height of one gameboard square
     constexpr static float s_squareHeight = .1f;
     // the radius of one piece
     constexpr static float s_pieceRadius = .35f;
@@ -323,6 +337,13 @@ struct Gameboard
 
     enum SquareState { InvalidField = -1, EmptyField, OccupiedField };
     SquareState m_squares[7*7];
+
+    enum GameboardState {NO_PIECE_PICKED, PIECE_PICKED};
+    GameboardState m_state;
+         //!  NO_PIECE_PICKED = no piece has been picked up, so we should pick one
+         //!  PIECE_PICKED = a piece was previously picked up and should now be dropped down
+
+
 
     asg::Object m_sceneGraph = nullptr;
 };
@@ -347,6 +368,41 @@ struct GrabberGame : Scene
         ASG_SAFE_CALL(asgComputeBounds(root,&bbox.min.x,&bbox.min.y,&bbox.min.z,
                                        &bbox.max.x,&bbox.max.y,&bbox.max.z,0));
     }
+    virtual bool handleMouseDown(visionaray::mouse_event const& event)
+    {
+        if(event.buttons() ==  visionaray::mouse::button::Left)
+        {
+
+            visionaray::vec2i mouse_pos = event.pos();
+
+            asg::Object clickedPiece = gb.getPieceAtPosition(mouse_pos);
+            if(clickedPiece != nullptr){
+                gb.m_sceneGraph->removeChild(clickedPiece);
+                clickedPiece->release();
+                rebuildANARIWorld = true;
+            }
+
+
+
+        }
+
+    }
+    virtual void beforeRenderFrame()
+    {
+        if (rebuildANARIWorld) {
+            ASG_SAFE_CALL(asgBuildANARIWorld(root,device,world,
+                        ASG_BUILD_WORLD_FLAG_FULL_REBUILD & ~ASG_BUILD_WORLD_FLAG_LIGHTS,0));
+
+            anariCommit(device,world);
+        }
+
+        rebuildANARIWorld = false;
+    }
+    bool needFrameReset()
+    {
+        return rebuildANARIWorld;
+    }
+    bool rebuildANARIWorld = false;
 
     virtual visionaray::aabb getBounds()
     {
