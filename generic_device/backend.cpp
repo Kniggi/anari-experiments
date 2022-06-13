@@ -1305,6 +1305,87 @@ namespace generic {
             }, ExecutionOrder::Geometry);
         }
 
+        void commit(generic::SphereGeom& geom)
+        {
+            enqueueCommit([&geom]() {
+                auto it = std::find_if(backend::geoms.begin(),backend::geoms.end(),
+                                       [&geom](const Geometry::SP& tg) {
+                                           return tg->handle != nullptr
+                                               && tg->handle == geom.getResourceHandle();
+                                       });
+
+                unsigned geomID(-1);
+
+                if (it == backend::geoms.end()) {
+                    backend::geoms.push_back(std::make_shared<SphereGeom>());
+                    it = backend::geoms.end()-1;
+                    geomID = backend::geoms.size()-1;
+                } else {
+                    geomID = std::distance(it,backend::geoms.begin());
+                }
+
+                auto cg = std::dynamic_pointer_cast<SphereGeom>(*it);
+                assert(cg != nullptr);
+
+                cg->handle = (ANARIGeometry)geom.getResourceHandle();
+                cg->geomID = geomID;
+
+                aligned_vector<basic_sphere<float>> spheres;
+
+                if (geom.primitive_index != nullptr) {
+                    Array1D* vertex = (Array1D*)GetResource(geom.vertex_position);
+                    Array1D* index = (Array1D*)GetResource(geom.primitive_index);
+                    Array1D* radius = (Array1D*)GetResource(geom.primitive_radius);
+
+                    vec3f* vertices = (vec3f*)vertex->data;
+                    vec2ui* indices = (vec2ui*)index->data;
+                    float* radii = (float*)radius->data;
+
+                    spheres.resize(index->numItems[0]);
+
+                    for (uint32_t i=0; i<index->numItems[0]; ++i) {
+                        vec3f center = vertices[indices[i].x];
+                        float r = radii[i];
+
+                        spheres[i].prim_id = i;
+                        spheres[i].geom_id = geomID;
+                        spheres[i].center = center;
+                        spheres[i].radius = r;
+                    }
+
+                    binned_sah_builder builder;
+                    builder.enable_spatial_splits(false);
+
+                    cg->bvh = builder.build(SphereBVH{},spheres.data(),spheres.size());
+                } else {
+                    Array1D* vertex = (Array1D*)GetResource(geom.vertex_position);
+                    Array1D* radius = (Array1D*)GetResource(geom.vertex_radius);
+
+                    vec3f* vertices = (vec3f*)vertex->data;
+                    float* radii = (float*)radius->data;
+                    
+                    spheres.resize(vertex->numItems[0]);
+
+                    for (uint32_t i=0; i<vertex->numItems[0]; i+=2) {
+                        vec3f center = vertices[i];
+                        float r = radii[i/2];
+
+                        spheres[i].prim_id = i/2;
+                        spheres[i].geom_id = geomID;
+                        spheres[i].center = center;
+                        spheres[i].radius = r;
+
+                        // std::cout << v1 << v2 << ' ' << r << '\n';
+                    }
+
+                    binned_sah_builder builder;
+                    builder.enable_spatial_splits(false);
+
+                    cg->bvh = builder.build(SphereBVH{},spheres.data(),spheres.size());
+                }
+            }, ExecutionOrder::Geometry);
+        }
+
         void commit(generic::CylinderGeom& geom)
         {
             enqueueCommit([&geom]() {
