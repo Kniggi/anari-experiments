@@ -245,7 +245,10 @@ struct Viewer : visionaray::viewer_glut
         }
         //if (!anari.scene->handleSpaceMouseMove(event))
     }
-
+    void on_key_press(visionaray::key_event const& event){
+         if (!anari.scene->handleKeyPress(event))
+            viewer_glut::on_key_press(event);
+    }
 
     struct {
         std::string libType = "environment";

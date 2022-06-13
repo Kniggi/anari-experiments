@@ -76,6 +76,10 @@ struct Scene
     {
         return false;
     }
+     virtual bool handleKeyPress(visionaray::key_event const&)
+    {
+        return false;
+    }
 
     virtual bool needFrameReset()
     {

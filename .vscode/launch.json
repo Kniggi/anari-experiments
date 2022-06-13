@@ -8,7 +8,7 @@
     "type": "cppdbg",
     "request": "launch",
     "program": "${command:cmake.launchTargetPath}",
-    "args": ["grabber"],
+    "args": ["sphere-test"],
     "stopAtEntry": false,
     "cwd": "${fileDirname}",
     "environment": [
