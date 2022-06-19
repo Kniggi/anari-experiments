@@ -44,7 +44,7 @@ namespace grabber
 
     asg::SphereGeometry makeSphere(float radius)
     {
-        float* sphVertex = new float[3] { 0.1f,0.1f,0.1f};
+        float* sphVertex = new float[3] { radius,radius,radius};
         float* sphRadius = new float[1] { radius };
         
         asg::SphereGeometry sph = asg::newSphereGeometry(
@@ -413,6 +413,7 @@ struct Grabber
         trans->addChild(asg::newSurface(under_arm_piece,dfltColor));
         from_under_arm->addChild(trans);
         from_elbow->addChild(from_under_arm);
+        m_from_under_arm = from_under_arm;
         //...
 
 
@@ -425,7 +426,8 @@ struct Grabber
         
       
         //TODO SPhere object Material
-        asg::SphereGeometry wrist = grabber::makeSphere(s_wristRadius * 1.5f);
+        //asg::SphereGeometry wrist = grabber::makeSphere(s_wristRadius * 1.5f);
+        asg::CylinderGeometry wrist = grabber::makeCylinder(1.f,s_wristRadius * 1.5f);
         trans->addChild(asg::newSurface(wrist,dfltColor));
         from_wrist->addChild(trans);
         //m_azimuth->addChild(from_under_arm);
@@ -433,7 +435,7 @@ struct Grabber
         //from_wrist->addChild(m_azimuth);
         from_under_arm->addChild(from_wrist);
 
-        // //the part of the grabber starting with its hand to its finger
+        //the part of the grabber starting with its hand to its finger
         asg::Object from_hand = asg::newObject();
         trans = grabber::makeTransform(2, M_PI/2.f ,0.0, s_wristRadius+hand_length/2.f, 0.0 );
         //TODO: Cone Geometry
@@ -442,16 +444,16 @@ struct Grabber
         from_hand->addChild(trans);
         from_wrist->addChild(from_hand);
 
-        // // the finger of the grabber
-        // asg::Object from_finger = asg::newObject();
-        // trans = grabber::makeTransform(0,0,0.0, hand_length/2+s_fingerLength/2, 0.0);
+        // the finger of the grabber
+        asg::Object from_finger = asg::newObject();
+        trans = grabber::makeTransform(0,0,0.0, hand_length/2+s_fingerLength/2, 0.0);
 
-        // asg::CylinderGeometry finger = grabber::makeCylinder(s_fingerLength,s_fingerRadius);
-        // trans = grabber::makeTransform(0,0,0.0, s_fingerLength/2+Gameboard::s_pieceHeight/2, 0.0);
-        // trans->addChild(asg::newSurface(finger,dfltColor));
-        // from_finger->addChild(trans);
-        // from_hand->addChild(from_finger);
-        // m_finger = from_finger;
+        asg::CylinderGeometry finger = grabber::makeCylinder(s_fingerLength,s_fingerRadius);
+        trans = grabber::makeTransform(0,0,0.0, s_fingerLength/2+Gameboard::s_pieceHeight/2, 0.0);
+        trans->addChild(asg::newSurface(finger,dfltColor));
+        from_finger->addChild(trans);
+        from_hand->addChild(from_finger);
+        m_finger = from_finger;
          
          
          printSceneGraph((ASGObject)*grabber,true);
@@ -497,6 +499,7 @@ struct Grabber
 
    // schedule the idle sensor to start the animation
   // m_idleSensor->schedule();
+    animation();
    }
    bool animation()
     {
@@ -536,6 +539,7 @@ struct Grabber
         m_shoulderRot_angle = m_startShoulderRot + (m_endShoulderRot - m_startShoulderRot)*m_ramp;
          m_radCalc_b = m_startRadialDist + (m_endRadialDist -
                m_startRadialDist)*m_ramp;
+        std::static_pointer_cast<asg::detail::Transform>(m_from_under_arm->getChild(0))->translate(0.f, (m_radCalc_b - m_radCalc_a /2.f),0.f);
          break;
       case DOWN_GRABBER:
         m_azimuth = grabber::makeRotation(m_azimuth_axis,  m_startAzimuth + (m_endAzimuth -
@@ -549,6 +553,7 @@ struct Grabber
         m_azimuth_angle =  m_startAzimuth + (m_endAzimuth -
                m_startAzimuth)*(1.0-m_ramp); 
          break;
+        
    }
 
    return true;
@@ -592,7 +597,7 @@ struct Grabber
     asg::Object m_sceneGraph = nullptr;
     asg::Object m_finger = nullptr;
     asg::Transform m_shoulderRot = nullptr;
-
+    asg::Object m_from_under_arm = nullptr;
     asg::Transform m_azimuth = nullptr;
 
     enum Mode { INACTIVE, GET_PIECE, SET_PIECE };

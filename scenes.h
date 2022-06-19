@@ -234,16 +234,16 @@ struct SphereTest : Scene
     {
         root = asgNewObject();
 
-        uint32_t numSpheres = 10000;
+        uint32_t numSpheres = 1;
 
-        std::vector<float> positions(numSpheres*3);
-        std::vector<float> radii(numSpheres);
+        float* positions = new float[numSpheres*3];
+        float* radii = new float[numSpheres];
         std::vector<float> colors(numSpheres*4);
         std::vector<uint32_t> indices(numSpheres);
 
         std::default_random_engine rnd;
         std::uniform_real_distribution<float> pos(-1.0f, 1.0f);
-        std::uniform_real_distribution<float> rad(.005f, .01f);
+        std::uniform_real_distribution<float> rad(.005f, .9f);
 
         for (uint32_t i=0; i<numSpheres; ++i) {
             positions[i*3] = pos(rnd);
@@ -267,8 +267,8 @@ struct SphereTest : Scene
         //                                                     (uint32_t)indices.size());
 
         // w/o indices
-        ASGSphereGeometry sphereGeom = asgNewSphereGeometry(positions.data(),radii.data(),
-                                                            colors.data(),numSpheres,NULL,
+        ASGSphereGeometry sphereGeom = asgNewSphereGeometry(positions,radii,
+                                                            nullptr,numSpheres,NULL,
                                                             0);
 
         ASGMaterial mat = asgNewMaterial("");
