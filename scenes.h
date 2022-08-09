@@ -234,7 +234,7 @@ struct SphereTest : Scene
     {
         root = asgNewObject();
 
-        uint32_t numSpheres = 1;
+        uint32_t numSpheres = 10;
 
         float* positions = new float[numSpheres*3];
         float* radii = new float[numSpheres];

@@ -605,7 +605,7 @@ namespace generic {
                             result.color = bounce ? vec4f(L, 1.f) : backgroundColor;
                             return result;
                         }, sparams);
-                    } else if (!world.surfaceImpl.triangleBVHInsts.empty()) {
+                    } else if (!world.surfaceImpl.triangleBVHInsts.empty() || !world.surfaceImpl.sphereBVHInsts.empty() || !world.surfaceImpl.cylinderBVHInsts.empty() ) {
                         vec4f ambient{0.f,0.f,0.f,0.f};
 
                         if (world.lightImpl.lights.empty())
@@ -1335,7 +1335,7 @@ namespace generic {
                 if (geom.primitive_index != nullptr) {
                     Array1D* vertex = (Array1D*)GetResource(geom.vertex_position);
                     Array1D* index = (Array1D*)GetResource(geom.primitive_index);
-                    Array1D* radius = (Array1D*)GetResource(geom.primitive_radius);
+                    Array1D* radius = (Array1D*)GetResource(geom.vertex_radius);
 
                     vec3f* vertices = (vec3f*)vertex->data;
                     vec2ui* indices = (vec2ui*)index->data;
@@ -1363,14 +1363,14 @@ namespace generic {
 
                     vec3f* vertices = (vec3f*)vertex->data;
                     float* radii = (float*)radius->data;
-                    
+
                     spheres.resize(vertex->numItems[0]);
 
-                    for (uint32_t i=0; i<vertex->numItems[0]; i+=2) {
+                    for (uint32_t i=0; i<vertex->numItems[0]; i++) {
                         vec3f center = vertices[i];
-                        float r = radii[i/2];
+                        float r = radii[i];
 
-                        spheres[i].prim_id = i/2;
+                        spheres[i].prim_id = i;
                         spheres[i].geom_id = geomID;
                         spheres[i].center = center;
                         spheres[i].radius = r;
