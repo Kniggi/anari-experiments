@@ -296,6 +296,78 @@ struct SphereTest : Scene
         return bbox;
     }
 };
+struct TransformTest :Scene
+{
+        TransformTest(ANARIDevice dev, ANARIWorld wrld, const char* fileName = NULL)
+        : Scene(dev,wrld)
+        {
+            root = asgNewObject();
+            static float vertex[] = {-1.f,-1.f,-1.f,
+                                  1.f,-1.f,-1.f,
+                                  1.f, 1.f,-1.f,
+                                 -1.f, 1.f,-1.f,
+                                  1.f,-1.f, 1.f,
+                                 -1.f,-1.f, 1.f,
+                                 -1.f, 1.f, 1.f,
+                                  1.f, 1.f, 1.f};
+
+            static uint32_t index[] = {0,1,2, 0,2,3, 4,5,6, 4,6,7,
+                                   1,4,7, 1,7,2, 5,0,3, 5,3,6,
+                                   5,4,1, 5,1,0, 3,2,7, 3,7,6};
+
+            ASGTriangleGeometry boxGeom = asgNewTriangleGeometry(vertex,NULL,NULL,8,
+                                                             index,12,NULL,NULL,NULL,
+                                                             NULL);
+            ASGMaterial mat1 = asgNewMaterial("");
+            float red[3] = {1.f,0.f,0.f};
+            ASG_SAFE_CALL(asgMakeMatte(&mat1,red,NULL));
+            ASG_SAFE_CALL(asgObjectSetName(mat1,"red"));
+            ASGSurface surf1 = asgNewSurface(boxGeom,mat1);
+            float matrix1[] = {1.f,0.f,0.f,
+                           0.f,1.f,0.f,
+                           0.f,0.f,1.f,
+                           0.f,0.f,0.f};
+            float matrix2[] = {1.f,0.f,0.f,
+                           0.f,1.f,0.f,
+                           0.f,0.f,1.f,
+                           3.f,0.f,0.f};
+            float matrix3[] = {1.f,0.f,0.f,
+                           0.f,1.f,0.f,
+                           0.f,0.f,1.f,
+                           0.f,2.f,0.f};
+            ASGTransform trans1 = asgNewTransform(matrix1);
+            ASGTransform trans2 = asgNewTransform(matrix2);
+            ASGTransform trans3 = asgNewTransform(matrix3);
+
+
+            ASG_SAFE_CALL(asgObjectAddChild(trans3,surf1));
+            ASG_SAFE_CALL(asgObjectAddChild(trans1,trans3));
+            ASG_SAFE_CALL(asgObjectAddChild(root,trans1));
+
+             ASGMaterial mat2 = asgNewMaterial("");
+            float green[3] = {0.f,1.f,0.f};
+            ASG_SAFE_CALL(asgMakeMatte(&mat2,green,NULL));
+            ASG_SAFE_CALL(asgObjectSetName(mat2,"green"));
+            ASGSurface surf2 = asgNewSurface(boxGeom,mat2);
+            ASG_SAFE_CALL(asgObjectAddChild(trans1,surf2));
+            ASG_SAFE_CALL(asgObjectAddChild(root,trans2));
+
+
+            ASG_SAFE_CALL(asgBuildANARIWorld(root,device,world,
+                                         ASG_BUILD_WORLD_FLAG_FULL_REBUILD,0));
+
+            anariCommit(device,world);
+        }
+        visionaray::aabb getBounds()
+        {
+            visionaray::aabb bbox;
+            bbox.invalidate();
+            ASG_SAFE_CALL(asgComputeBounds(root,&bbox.min.x,&bbox.min.y,&bbox.min.z,
+                                            &bbox.max.x,&bbox.max.y,&bbox.max.z,0));
+            return bbox;
+        }
+};
+
 
 // Load volume file or generate default volume
 struct VolumeScene : Scene
