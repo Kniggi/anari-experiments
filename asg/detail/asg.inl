@@ -24,7 +24,7 @@ namespace asg {
                 throw std::runtime_error("Error code: "+std::to_string((int)error));
         }
 
-        
+
 
         // ==========================================================
         // Object
@@ -69,14 +69,14 @@ namespace asg {
         }
         inline int Object::getChildren()
         {
-           
+
             int numChildren;
             detail::errorFunc(asgObjectGetChildren(handle,nullptr, &numChildren));
            //  ASGObject* children = (ASGObject*)malloc(sizeof(ASGObject) * numChildren);
-            
+
             //detail::errorFunc(asgObjectGetChildren(handle,&children, &numChildren));
-           
-            
+
+
             //return std::shared_ptr<Object*>(new Object*(reinterpret_cast<Object*>(children)));
             return numChildren;
         }
@@ -276,10 +276,10 @@ namespace asg {
             detail::errorFunc(asgTransformTranslate(handle,xyz));
         }
 
-        void Transform::rotate(ASGTransform trans, float axis[3],
+        void Transform::rotate( float axis[3],
                                      float angleInRadians)
         {
-            
+
             detail::errorFunc(asgTransformRotate(handle,axis,angleInRadians));
         }
         float* Transform::getMatrix(float matrix[12]){

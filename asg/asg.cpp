@@ -443,7 +443,7 @@ ASGError_t asgObjectGetChildren(ASGObject obj, ASGObject** children, int* numChi
     if (children == NULL) {
         return ASG_ERROR_NO_ERROR;
     } else {
-     
+
         std::memcpy(*children,obj->children.data(),obj->children.size()*sizeof(ASGObject));
         return ASG_ERROR_NO_ERROR;
     }
@@ -2623,8 +2623,8 @@ static void pickObject(ASGVisitor self, ASGObject obj, void* userData) {
 
             asg::Vec3f rayDirInv = 1.f/pr->rayDir;
 
-            asg::Vec3f t1 = (bounds.minVal - pr->rayOri) * rayDirInv; 
-            asg::Vec3f t2 = (bounds.maxVal - pr->rayOri) * rayDirInv; 
+            asg::Vec3f t1 = (bounds.minVal - pr->rayOri) * rayDirInv;
+            asg::Vec3f t2 = (bounds.maxVal - pr->rayOri) * rayDirInv;
 
             float tnear = std::max(std::min(t1.x,t2.x),std::max(std::min(t1.y,t2.y),std::min(t1.z,t2.z)));
             float tfar  = std::min(std::max(t1.x,t2.x),std::min(std::max(t1.y,t2.y),std::max(t1.z,t2.z)));
@@ -2787,19 +2787,63 @@ static void visitANARIWorld(ASGVisitor self, ASGObject obj, void* userData) {
                 anari->surfaces.clear();
                 anari->volumes.clear();
                 anari->lights.clear();
-
                 asg::Mat4x3f prevTrans = anari->trans;
                 asg::Mat3f A = *(asg::Mat3f*)&anari->trans;
                 asg::Mat3f B{{trans->matrix[0],trans->matrix[1],trans->matrix[2]},
                              {trans->matrix[3],trans->matrix[4],trans->matrix[5]},
                              {trans->matrix[6],trans->matrix[7],trans->matrix[8]}};
-                asg::Mat3f C = A * B;
+                 asg::Mat3f C = A * B;
+                 if (trans->anariInstance == nullptr)
+                    trans->anariInstance = anariNewInstance(anari->device);
                 anari->trans.col0 = C.col0;
                 anari->trans.col1 = C.col1;
                 anari->trans.col2 = C.col2;
                 anari->trans.col3 += asg::Vec3f{trans->matrix[ 9],
-                                                trans->matrix[10],
+                                         trans->matrix[10],
+                                         trans->matrix[11]};
+
+                if(( prevTrans.col2.z==1 && prevTrans.col1.y!=1 && prevTrans.col0.x!=1)){
+                      anari->trans.col3 += {trans->matrix[ 10],
+                                                trans->matrix[9],
                                                 trans->matrix[11]};
+                      anari->trans.axes=3;
+
+
+                // }
+                // else if( (prevTrans.col2.z!=1 && prevTrans.col1.y==1 && prevTrans.col0.x!=1)){
+                //     anari->trans.col3 += asg::Vec3f{trans->matrix[ 11],
+                //                                 trans->matrix[10],
+                //                                 trans->matrix[9]};
+                //       anari->trans.axes=2;
+                // }
+                // else if( (prevTrans.col2.z!=1 && prevTrans.col1.y!=1 && prevTrans.col0.x==1)){
+                //     anari->trans.col3 += asg::Vec3f{trans->matrix[ 9],
+                //                                 trans->matrix[11],
+                //                                 trans->matrix[10]};
+                //       anari->trans.axes=1;
+                // }
+                // else{
+                //     if(anari->trans.axes==3){
+                //         anari->trans.col3 += {trans->matrix[ 10],
+                //                                 trans->matrix[9],
+                //                                 trans->matrix[11]};
+                //     }
+                //     else if (anari->trans.axes==2){
+                //          anari->trans.col3 += asg::Vec3f{trans->matrix[ 11],
+                //                                 trans->matrix[10],
+                //                                 trans->matrix[9]};
+                //     }
+                //     else if (anari->trans.axes==1){
+                //         anari->trans.col3 += asg::Vec3f{trans->matrix[ 9],
+                //                                 trans->matrix[11],
+                //                                 trans->matrix[10]};
+                //     }
+                //     else{
+                //     anari->trans.col3 += asg::Vec3f{trans->matrix[ 9],
+                //                                 trans->matrix[10],
+                //                                 trans->matrix[11]};
+                //     }
+                // }
 
                 asgVisitorApply(self,obj);
 
@@ -2817,17 +2861,21 @@ static void visitANARIWorld(ASGVisitor self, ASGObject obj, void* userData) {
                 anari->instances.insert(anari->instances.end(),instances.begin(),
                                         instances.end());
 
-                if (trans->anariInstance == nullptr)
-                    trans->anariInstance = anariNewInstance(anari->device);
 
                 anariSetParameter(anari->device,trans->anariInstance,"group",
-                                  ANARI_GROUP,&anariGroup);
+                                   ANARI_GROUP,&anariGroup);
                 anariSetParameter(anari->device,trans->anariInstance,"transform",
                                   ANARI_FLOAT32_MAT3x4,(float*)&anari->trans);
 
                 anariCommit(anari->device,trans->anariInstance);
 
                 anariRelease(anari->device,anariGroup);
+
+
+
+
+
+
 
                 if (self->visible && notEmpty)
                     anari->instances.push_back(trans->anariInstance);

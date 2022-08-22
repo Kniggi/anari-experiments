@@ -162,7 +162,7 @@ namespace asg {
             void translate(float x, float y, float z);
 
             void translate(float xyz[3]);
-            void rotate(ASGTransform trans, float axis[3], float angleInRadians);
+            void rotate( float axis[3], float angleInRadians);
             float* getMatrix(float matrix[12]);
 
         };

@@ -239,7 +239,7 @@ struct SphereTest : Scene
         float* positions = new float[numSpheres*3];
         float* radii = new float[numSpheres];
         std::vector<float> colors(numSpheres*4);
-        std::vector<uint32_t> indices(numSpheres);
+        uint32_t*  indices = new uint32_t[numSpheres];
 
         std::default_random_engine rnd;
         std::uniform_real_distribution<float> pos(-1.0f, 1.0f);
@@ -261,15 +261,15 @@ struct SphereTest : Scene
         }
 
         // w/ indices
-        // ASGSphereGeometry sphereGeom = asgNewSphereGeometry(positions.data(),radii.data(),
-        //                                                     NULL,numSpheres,
-        //                                                     indices.data(),
-        //                                                     (uint32_t)indices.size());
+        ASGSphereGeometry sphereGeom = asgNewSphereGeometry(positions,radii,
+                                                            NULL,numSpheres,
+                                                            indices,
+                                                            numSpheres/2);
 
         // w/o indices
-        ASGSphereGeometry sphereGeom = asgNewSphereGeometry(positions,radii,
-                                                            nullptr,numSpheres,NULL,
-                                                            0);
+       // ASGSphereGeometry sphereGeom = asgNewSphereGeometry(positions,radii,
+        //                                                    nullptr,numSpheres,NULL,
+        //                                                    0);
 
         ASGMaterial mat = asgNewMaterial("");
         float grey[3] = {.8f,.8f,.8f};
@@ -314,43 +314,66 @@ struct TransformTest :Scene
             static uint32_t index[] = {0,1,2, 0,2,3, 4,5,6, 4,6,7,
                                    1,4,7, 1,7,2, 5,0,3, 5,3,6,
                                    5,4,1, 5,1,0, 3,2,7, 3,7,6};
+            float* cylVertex = new float[6] { 0.f,-1/2.f,0.f,
+                                          0.f,1/2.f,0.f };
+            float* cylRadius = new float[1] { 2};
+            uint8_t* cylCap = new uint8_t[1] { 1 };
+            ASGCylinderGeometry cyl = asgNewCylinderGeometry(
+                    cylVertex,cylRadius,nullptr,cylCap,2,nullptr,0);
 
             ASGTriangleGeometry boxGeom = asgNewTriangleGeometry(vertex,NULL,NULL,8,
                                                              index,12,NULL,NULL,NULL,
                                                              NULL);
+
             ASGMaterial mat1 = asgNewMaterial("");
+            ASGMaterial mat2 = asgNewMaterial("");
+            ASGMaterial mat3 = asgNewMaterial("");
             float red[3] = {1.f,0.f,0.f};
-            ASG_SAFE_CALL(asgMakeMatte(&mat1,red,NULL));
-            ASG_SAFE_CALL(asgObjectSetName(mat1,"red"));
-            ASGSurface surf1 = asgNewSurface(boxGeom,mat1);
-            float matrix1[] = {1.f,0.f,0.f,
-                           0.f,1.f,0.f,
-                           0.f,0.f,1.f,
-                           0.f,0.f,0.f};
-            float matrix2[] = {1.f,0.f,0.f,
-                           0.f,1.f,0.f,
-                           0.f,0.f,1.f,
-                           3.f,0.f,0.f};
-            float matrix3[] = {1.f,0.f,0.f,
-                           0.f,1.f,0.f,
-                           0.f,0.f,1.f,
-                           0.f,2.f,0.f};
-            ASGTransform trans1 = asgNewTransform(matrix1);
-            ASGTransform trans2 = asgNewTransform(matrix2);
-            ASGTransform trans3 = asgNewTransform(matrix3);
-
-
-            ASG_SAFE_CALL(asgObjectAddChild(trans3,surf1));
-            ASG_SAFE_CALL(asgObjectAddChild(trans1,trans3));
-            ASG_SAFE_CALL(asgObjectAddChild(root,trans1));
-
-             ASGMaterial mat2 = asgNewMaterial("");
             float green[3] = {0.f,1.f,0.f};
+            float blue[3] = {0.f,0.f,1.f};
+            ASG_SAFE_CALL(asgMakeMatte(&mat1,red,NULL));
             ASG_SAFE_CALL(asgMakeMatte(&mat2,green,NULL));
-            ASG_SAFE_CALL(asgObjectSetName(mat2,"green"));
-            ASGSurface surf2 = asgNewSurface(boxGeom,mat2);
-            ASG_SAFE_CALL(asgObjectAddChild(trans1,surf2));
-            ASG_SAFE_CALL(asgObjectAddChild(root,trans2));
+            ASG_SAFE_CALL(asgMakeMatte(&mat3,blue,NULL));
+            ASGSurface surf_red = asgNewSurface(cyl,mat1);
+            ASGSurface surf_green = asgNewSurface(cyl,mat2);
+            ASGSurface surf_blue = asgNewSurface(cyl,mat3);
+
+            ASGTransform rot = makeRotation(1,M_PI/4.f);
+            ASGTransform trans = makeTransform(0,0,2,0,0);
+            ASGTransform trans_rot = makeTransform(1,M_PI/4.f,2,0,0);
+
+          //  ASG_SAFE_CALL(asgObjectAddChild(rot,surf_red));
+
+           ASGObject object = asgNewObject();
+           ASG_SAFE_CALL(asgObjectAddChild(trans,rot));
+
+
+
+            ASG_SAFE_CALL(asgObjectAddChild(root,trans));
+
+
+
+
+
+
+
+            ASGTransform trans2 = makeTransform(0,0,0,2,0);
+            ASGTransform rot2 = makeTransform(1,M_PI/4.f,2.f,0.f,0.f);
+            ASGObject object2 = asgNewObject();
+            ASG_SAFE_CALL(asgObjectAddChild(rot2,surf_blue));
+            ASG_SAFE_CALL(asgObjectAddChild(object2,rot2));
+            ASGObject obj;
+            ASG_SAFE_CALL(asgObjectGetChild(root,0,&obj));
+            ASG_SAFE_CALL(asgObjectAddChild(obj,object2));
+
+            ASGTransform new_trans = makeTransform(1,M_PI/4.f,2,0,0);
+             ASGTransform new_trans_rot = makeTransform(1,M_PI/4.f,2,0,0);
+            ASG_SAFE_CALL(asgObjectAddChild(new_trans_rot,surf_green));
+            ASG_SAFE_CALL(asgObjectAddChild(new_trans,new_trans_rot));
+            ASG_SAFE_CALL(asgObjectAddChild(root,new_trans));
+           // ASG_SAFE_CALL(asgObjectAddChild(trans,object2));
+          //  ASG_SAFE_CALL(asgObjectAddChild(root,object2));
+
 
 
             ASG_SAFE_CALL(asgBuildANARIWorld(root,device,world,
@@ -358,6 +381,56 @@ struct TransformTest :Scene
 
             anariCommit(device,world);
         }
+        ASGTransform makeTransform(int axis, float angle, float tx, float ty, float tz)
+        {
+            float cosa = cosf(angle);
+            float sina = sinf(angle);
+
+            if (axis == 0) {
+                float R[] = {1.f,0.f,0.f,
+                             0.f,cosa,sina,
+                             0.f,-sina,cosa,
+                             tx,ty,tz};
+                return asgNewTransform(R);
+            } else if (axis == 1) {
+                float R[] = {cosa,0.f,sina,
+                             0.f,1.f,0.f,
+                             -sina,0.f,cosa,
+                             tx,ty,tz};
+                return asgNewTransform(R);
+            } else { assert(axis == 2);
+                float R[] = {cosa,sina,0.f,
+                             -sina,cosa,0.f,
+                             0.f,0.f,1.f,
+                             tx,ty,tz};
+                return asgNewTransform(R);
+            }
+        }
+    ASGTransform makeRotation(int axis, float angle)
+    {
+        float cosa = cosf(angle);
+        float sina = sinf(angle);
+
+        if (axis == 0) {
+            float R[] = {1.f,0.f,0.f,
+                         0.f,cosa,sina,
+                         0.f,-sina,cosa,
+                         0.f,0.f,0.f};
+            return asgNewTransform(R);
+        } else if (axis == 1) {
+            float R[] = {cosa,0.f,sina,
+                         0.f,1.f,0.f,
+                         -sina,0.f,cosa,
+                         0.f,0.f,0.f};
+            return asgNewTransform(R);
+        } else { assert(axis == 2);
+            float R[] = {cosa,sina,0.f,
+                         -sina,cosa,0.f,
+                         0.f,0.f,1.f,
+                         0.f,0.f,0.f};
+            return asgNewTransform(R);
+        }
+    }
         visionaray::aabb getBounds()
         {
             visionaray::aabb bbox;

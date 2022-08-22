@@ -93,6 +93,7 @@ namespace asg
         Vec3f col1;
         Vec3f col2;
         Vec3f col3;
+        ;
     };
 
     struct Mat4f
@@ -667,9 +668,9 @@ namespace asg
         float c = cosf(angle);
 
         return Mat3f{
-            { v.x*v.x*(1.f-c)+c, v.x*v.y*(1.f-c)+s*v.z, v.x*v.z*(1.f-c)-s*v.y },
-            { v.y*v.x*(1.f-c)-s*v.z, v.y*v.y*(1.f-c)+c, v.y*v.z*(1.f-c)+s*v.x },
-            { v.x*v.x*(1.f-c)+s*v.y, v.z*v.y*(1.f-c)-s*v.x, v.z*v.z*(1.f-c)+c }
+            { v.x*v.x*(1.f-c)+c, v.x*v.y*(1.f-c)+s*v.z, v.x*v.z*(1.f-c)-s*v.y }, // cos, sin, 0
+            { v.y*v.x*(1.f-c)-s*v.z, v.y*v.y*(1.f-c)+c, v.y*v.z*(1.f-c)+s*v.x },  //-sin, cos, 0
+            { v.x*v.x*(1.f-c)+s*v.y, v.z*v.y*(1.f-c)-s*v.x, v.z*v.z*(1.f-c)+c }  //0,0,
         };
     }
 
@@ -690,7 +691,7 @@ namespace asg
 
     ASG_FUNC inline Vec3f operator*(Mat3f const& a, Vec3f const& b)
     {
-        return { 
+        return {
             a.col0.x * b.x + a.col1.x * b.y + a.col2.x * b.z,
             a.col0.y * b.x + a.col1.y * b.y + a.col2.y * b.z,
             a.col0.z * b.x + a.col1.z * b.y + a.col2.z * b.z

@@ -8,7 +8,7 @@
     "type": "cppdbg",
     "request": "launch",
     "program": "${command:cmake.launchTargetPath}",
-    "args": ["island"],
+    "args": ["grabber"],
     "stopAtEntry": false,
     "cwd": "${fileDirname}",
     "environment": [

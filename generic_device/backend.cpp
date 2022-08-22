@@ -357,8 +357,15 @@ namespace generic {
 
             if (hr.bvhType == BVHType::Triangles)
                 n = get_normal(baseHR,tlases.triangleTLAS);
-            else if (hr.bvhType == BVHType::Spheres)
+            else if (hr.bvhType == BVHType::Spheres){
+                //fix computation of normals for spheres
+                const auto& inst = tlases.sphereTLAS.primitive(hr.primitive_list_index);
+                baseHR.isect_pos += inst.trans_inv();
+                baseHR.isect_pos = inst.affine_inv() * baseHR.isect_pos;
                 n = get_normal(baseHR,tlases.sphereTLAS);
+                n = transpose(inst.affine_inv()) * n;
+                //n = get_normal(baseHR,tlases.sphereTLAS);
+            }
             else if (hr.bvhType == BVHType::Cylinders) {
                 const auto& inst = tlases.cylinderTLAS.primitive(hr.primitive_list_index);
                 baseHR.isect_pos += inst.trans_inv();
@@ -548,7 +555,7 @@ namespace generic {
 
                         sched.frame([&](ray r, random_generator<float>& gen, int x, int y) {
                             result_record<float> result;
-                            
+
                             henyey_greenstein<float> f;
                             f.g = 0.f; // isotropic
 

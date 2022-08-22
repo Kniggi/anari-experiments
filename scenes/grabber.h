@@ -44,9 +44,9 @@ namespace grabber
 
     asg::SphereGeometry makeSphere(float radius)
     {
-        float* sphVertex = new float[3] { radius,radius,radius};
+        float* sphVertex = new float[3] { 0,0,0};
         float* sphRadius = new float[1] { radius };
-        
+
         asg::SphereGeometry sph = asg::newSphereGeometry(
                 sphVertex,sphRadius,nullptr,1,nullptr,0);
 
@@ -105,7 +105,7 @@ namespace grabber
             return asg::newTransform(R);
         }
     }
-} 
+}
 
 
 
@@ -197,54 +197,53 @@ struct Gameboard
                     float tr[] = {0.f,(s_squareHeight+s_pieceHeight)/2.f,0.f};
                     trans->translate(tr);
                     if (m_squares[index] == OccupiedField) {
-                        
+
 
                         trans->addChild(piece);
                         piece_select->addChild(trans);
-                        
+
                        piece_ids[index] = piece_select->getChildren() -1 ;
                     }
                     else{
                     piece_ids[index] = -1;
                     }
-                    
+
                     if(index==2){
                     asg::CylinderGeometry selector_cylinder = grabber::makeCylinder(s_pieceHeight,
                                                s_pieceRadius + 0.1f);
                     asg::Material selector = asg::newMaterial("matte");
                     selector->setParam(asg::Param("kd",1.0f,0.0f,0.0f));
                     m_selector_surface = asg::newSurface(selector_cylinder,selector);
-        
+
                     asg::Transform selector_trans = asg::newTransform(I);
                     selector_trans->translate(getPositionOfPiece(index).data());
                     float trr[] = {0.f,(s_squareHeight+s_pieceHeight)/2.f,0.f};
                     selector_trans->translate(trr);
                     selector_trans->addChild(m_selector_surface);
-                    
-                    
+
                     m_sceneGraph->addChild(selector_trans);
                     m_selector = selector_trans;
-                    m_selector_index = 2;   
+                    m_selector_index = 2;
                     }
                 }
                 else{
                     piece_ids[index] = -1;
                 }
 
-                
+
                 index++;
             }
         }
-       
+
     }
     asg::Object getPieceAtPosition(visionaray::vec2i pos){
 
-      
+
         for(int i= 0; i< sizeof(m_squares)/sizeof(Gameboard::SquareState); i++){
              if (m_squares[i] == OccupiedField) {
-                  std::cout << getPositionOfPiece(i).data(); 
+                  std::cout << getPositionOfPiece(i).data();
 
-                  
+
              }
         }
 
@@ -266,7 +265,7 @@ struct Gameboard
    // 2. remove the piece from the scenegraph
    // 3. mark the square as empty
 
-                
+
    if(m_squares[m_selector_index] == OccupiedField)
    {
       asg::Select child = std::static_pointer_cast<asg::detail::Select>(m_sceneGraph->getChild(1));
@@ -275,7 +274,7 @@ struct Gameboard
       // this piece possibly gets handed over to the grabber, so keep
       // a reference to it
       //piece->ref();
-     
+
       m_squares[m_selector_index] = Gameboard::SquareState::EmptyField;
 
       return piece;
@@ -363,6 +362,10 @@ struct Grabber
             5,11,6, 5,6,0,
             11,10,9, 11,9,8, 11,8,7, 11,7,6,
         };
+        float I [] = {1.f, 0.f, 0.f, 0.f,
+                      0.f, 1.f, 0.f, 0.f,
+                      0.f, 0.f, 1.f, 0.f,
+                      0.f, 0.f, 0.f, 1.f};
         asg::TriangleGeometry faceset = asg::newTriangleGeometry(
                 (float*)vals,NULL,NULL,12,ind,sizeof(ind)/sizeof(ind[0])/3,NULL);
         asg::Material dfltColor = asg::newMaterial("matte");
@@ -380,22 +383,28 @@ struct Grabber
         asg::Object from_upper_arm = asg::newObject();
         trans = grabber::makeTransform(0,0.f,0.f,
                                        (s_shoulderHeight+s_upperArmLength)/2,0.f);
-        from_upper_arm->addChild(trans);
+
         asg::TriangleGeometry upper_arm = grabber::makeCube(s_upperArmWidth,
                                                             s_upperArmLength,
                                                             s_upperArmWidth);
         trans->addChild(asg::newSurface(upper_arm,dfltColor));
-        fromShoulder->addChild(from_upper_arm);
+        from_upper_arm->addChild(trans);
+        fromShoulder->getChild(0)->addChild(from_upper_arm);
 
-        // the part of the grabber starting with its elbow to its finger
+       // the part of the grabber starting with its elbow to its finger
         asg::Object from_elbow = asg::newObject();
-        trans = grabber::makeTransform(2,M_PI/2.f,
-                                       0.f,s_upperArmLength/2.f+s_elbowRadius,0.f);
-        from_elbow->addChild(trans);
+       asg::Transform new_trans = grabber::makeTransform(2,M_PI/2.f,0.f,s_upperArmLength/2.f+s_elbowRadius,0.f);
+        float axes[] = {0,0,1};
+
+
+
         asg::CylinderGeometry elbow = grabber::makeCylinder(s_elbowWidth,s_elbowRadius);
-        trans->addChild(asg::newSurface(elbow,dfltColor));
-        m_azimuth = grabber::makeRotation(1,m_startAzimuth);
-        trans->addChild(m_azimuth);
+        new_trans->addChild(asg::newSurface(elbow,dfltColor));
+        // m_azimuth = grabber::makeRotation(1,m_startAzimuth);
+       // trans->addChild(m_azimuth);
+        from_elbow->addChild(new_trans);
+
+
         m_azimuth_axis = 1;
         m_azimuth_angle = m_startAzimuth;
         // m_azimuth->axis = SoRotationXYZ::Y;
@@ -403,64 +412,80 @@ struct Grabber
         // from_elbow->addChild(m_azimuth);
         from_upper_arm->getChild(0)->addChild(from_elbow);
 
-        // the part of the grabber starting with its under arm to its finger
+        // // the part of the grabber starting with its under arm to its finger
         asg::Object from_under_arm = asg::newObject();
-        trans = grabber::makeTransform(0,M_PI/2.f,
-                                       0.f,s_elbowRadius+s_underArmLength/2.f,0.f);
-       
+        //Axes are inverted through the rotation, original transforms the second coordinate
+       asg::Transform rot = grabber::makeRotation(0,0);
+
+
+        trans = asg::newTransform();
+        trans->translate(0.f,s_upperArmLength/2.f+s_elbowRadius,0.f );
+        //grabber::makeTransform(0,0,);
+
+        // trans = grabber::makeTransform(0,M_PI/2.f,
+        //                                 0.f,s_elbowRadius+s_underArmLength/2.f + (m_startRadialDist - s_underArmLength+s_elbowRadius+s_wristRadius)/2,0.f);
         asg::CylinderGeometry under_arm_piece = grabber::makeCylinder(
-                s_underArmLength,s_underArmRadius1);
-        trans->addChild(asg::newSurface(under_arm_piece,dfltColor));
-        from_under_arm->addChild(trans);
-        from_elbow->addChild(from_under_arm);
+                 s_underArmLength,s_underArmRadius1);
+        rot->addChild(asg::newSurface(under_arm_piece,dfltColor));
+         trans->addChild(rot);
+         from_under_arm->addChild(trans);
+
+        from_elbow->getChild(0)->addChild(from_under_arm);
+
+
+
+
+
         m_from_under_arm = from_under_arm;
-        //...
+        // //...
 
 
 
 
-          //Ab hier funktionierts nich mehr
-        //the part of the grabber starting with its wrist to its finger
+
+        // the part of the grabber starting with its wrist to its finger
         asg::Object from_wrist = asg::newObject();
-        trans = grabber::makeTransform(0, M_PI/2, 0.0f, s_underArmLength/2+s_wristRadius, 0.0f);
-        
-      
-        //TODO SPhere object Material
-        //asg::SphereGeometry wrist = grabber::makeSphere(s_wristRadius * 1.5f);
-        asg::CylinderGeometry wrist = grabber::makeCylinder(1.f,s_wristRadius * 1.5f);
+        trans = grabber::makeTransform(0,0,0.f,s_underArmLength/2+s_wristRadius,  0.0f);
+
+        asg::SphereGeometry wrist = grabber::makeSphere(s_wristRadius * 1.5f);
+        // asg::CylinderGeometry wrist = grabber::makeCylinder(1.f,s_wristRadius * 1.5f);
         trans->addChild(asg::newSurface(wrist,dfltColor));
         from_wrist->addChild(trans);
-        //m_azimuth->addChild(from_under_arm);
-        //from_wrist->addChild(wrist);
-        //from_wrist->addChild(m_azimuth);
-        from_under_arm->addChild(from_wrist);
+        // m_azimuth->addChild(from_under_arm);
+        // from_wrist->addChild(wrist);
+        // from_wrist->addChild(m_azimuth);
+        from_under_arm->getChild(0)->addChild(from_wrist);
 
-        //the part of the grabber starting with its hand to its finger
+        // the part of the grabber starting with its hand to its finger
         asg::Object from_hand = asg::newObject();
-        trans = grabber::makeTransform(2, M_PI/2.f ,0.0, s_wristRadius+hand_length/2.f, 0.0 );
-        //TODO: Cone Geometry
+        // rotation and translation are different to Soluition
+        trans = grabber::makeTransform(2, M_PI/2.f ,0.0,s_wristRadius+hand_length/2.f, 0 );
+        // TODO: Cone Geometry
         asg::CylinderGeometry hand = grabber::makeCylinder(hand_length,s_handRadius);
         trans->addChild(asg::newSurface(hand,dfltColor));
         from_hand->addChild(trans);
-        from_wrist->addChild(from_hand);
+        from_wrist->getChild(0)->addChild(from_hand);
 
         // the finger of the grabber
         asg::Object from_finger = asg::newObject();
-        trans = grabber::makeTransform(0,0,0.0, hand_length/2+s_fingerLength/2, 0.0);
 
         asg::CylinderGeometry finger = grabber::makeCylinder(s_fingerLength,s_fingerRadius);
-        trans = grabber::makeTransform(0,0,0.0, s_fingerLength/2+Gameboard::s_pieceHeight/2, 0.0);
+
+        trans = grabber::makeTransform(0,0,0.0, hand_length/2+s_fingerLength/2, 0.0);
         trans->addChild(asg::newSurface(finger,dfltColor));
         from_finger->addChild(trans);
-        from_hand->addChild(from_finger);
-        m_finger = from_finger;
-         
-         
-         printSceneGraph((ASGObject)*grabber,true);
-         m_sceneGraph = grabber;
+        trans = grabber::makeTransform(0,0,0.0, s_fingerLength/2+Gameboard::s_pieceHeight/2, 0.0);
+
+        from_finger->getChild(0)->addChild(trans);
+        from_hand->getChild(0)->addChild(from_finger);
+         m_finger = from_finger;
+
+
+        printSceneGraph((ASGObject)*grabber,true);
+        m_sceneGraph = grabber;
     }
 
-    
+
    void getPiece(visionaray::vec3f position){
    // Schedule the idle sensor for the animation!
    // During the animation Gameboard::getPiece is called to
@@ -483,7 +508,7 @@ struct Grabber
 
    // decide if moving the grabber is necessary
    if(fabs(m_startRadialDist-m_endRadialDist)<s_epsilon
-         && fabs(m_startShoulderRot-m_endShoulderRot)<s_epsilon) 
+         && fabs(m_startShoulderRot-m_endShoulderRot)<s_epsilon)
    {
       m_animationStep = DOWN_GRABBER;
       m_rampStep = 0.1;
@@ -551,14 +576,14 @@ struct Grabber
         m_azimuth = grabber::makeRotation(m_azimuth_axis,  m_startAzimuth + (m_endAzimuth -
                m_startAzimuth)*(1.0-m_ramp));
         m_azimuth_angle =  m_startAzimuth + (m_endAzimuth -
-               m_startAzimuth)*(1.0-m_ramp); 
+               m_startAzimuth)*(1.0-m_ramp);
          break;
-        
+
    }
 
    return true;
     }
-    
+
     void attachGameboard(Gameboard *gameboard)
     {
         m_gameboard = gameboard;
@@ -631,39 +656,35 @@ struct GrabberGame : Scene
     {
         if(event.key() ==  visionaray::keyboard::ArrowLeft)
         {
-            
-            
-            
-
-               do{
+            do{
                 gb.m_selector_index--;
             }while(gb.m_squares[gb.m_selector_index] !=  Gameboard::SquareState::OccupiedField);
             if(gb.m_selector_index<2)
                 gb.m_selector_index = 2;
-            
+
 
               static float I[] = {1.f,0.f,0.f,
                                         0.f,1.f,0.f,
                                         0.f,0.f,1.f,
                                         0.f,0.f,0.f};
-         
+
             asg::Transform trans = asg::newTransform(I);
-           
+
             trans->translate(gb.getPositionOfPiece(gb.m_selector_index).data());
             float tr[] = {0.f,(gb.s_squareHeight+gb.s_pieceHeight)/2.f,0.f};
             trans->translate(tr);
              trans->addChild(gb.m_selector_surface);
             gb.m_sceneGraph->removeChild(gb.m_selector);
             gb.m_selector->release();
-        
 
-           
+
+
             gb.m_sceneGraph->addChild(trans);
             gb.m_selector = trans;
-          
+
             rebuildANARIWorld = true;
-           
-           
+
+
             // asg::Object clickedPiece = gb.getPieceAtPosition(mouse_pos);
             // if(clickedPiece != nullptr){
             //     gb.m_sceneGraph->removeChild(clickedPiece);
@@ -676,35 +697,32 @@ struct GrabberGame : Scene
         }
         if(event.key() ==  visionaray::keyboard::ArrowRight)
         {
-          
+
 
              do{
                 gb.m_selector_index++;
             }while(gb.m_squares[gb.m_selector_index] !=  Gameboard::SquareState::OccupiedField);
             if(gb.m_selector_index>30)
                 gb.m_selector_index = 30;
-            
+
               static float I[] = {1.f,0.f,0.f,
                                         0.f,1.f,0.f,
                                         0.f,0.f,1.f,
                                         0.f,0.f,0.f};
-         
+
             asg::Transform trans = asg::newTransform(I);
-           
+
             trans->translate(gb.getPositionOfPiece(gb.m_selector_index).data());
             float tr[] = {0.f,(gb.s_squareHeight+gb.s_pieceHeight)/2.f,0.f};
             trans->translate(tr);
              trans->addChild(gb.m_selector_surface);
             gb.m_sceneGraph->removeChild(gb.m_selector);
             gb.m_selector->release();
-           
-           
+
             gb.m_sceneGraph->addChild(trans);
             gb.m_selector = trans;
-          
-            rebuildANARIWorld = true;
 
-           
+            rebuildANARIWorld = true;
         }
          if(event.key() ==  visionaray::keyboard::Enter){
             asg::Select child = std::static_pointer_cast<asg::detail::Select>(gb.m_sceneGraph->getChild(1));
@@ -716,14 +734,14 @@ struct GrabberGame : Scene
 
              if(gb.m_selector_index>30)
                 gb.m_selector_index = 30;
-            
+
               static float I[] = {1.f,0.f,0.f,
                                         0.f,1.f,0.f,
                                         0.f,0.f,1.f,
                                         0.f,0.f,0.f};
-         
+
             asg::Transform trans = asg::newTransform(I);
-           
+
             trans->translate(gb.getPositionOfPiece(gb.m_selector_index).data());
             float tr[] = {0.f,(gb.s_squareHeight+gb.s_pieceHeight)/2.f,0.f};
             trans->translate(tr);
@@ -731,10 +749,10 @@ struct GrabberGame : Scene
             gb.m_sceneGraph->removeChild(gb.m_selector);
             gb.m_selector->release();
             gr.getPiece(gb.getPositionOfPiece(gb.m_selector_index));
-           
+
             gb.m_sceneGraph->addChild(trans);
             gb.m_selector = trans;
-          
+
             rebuildANARIWorld = true;
             // gb.m_sceneGraph->removeChild(child);
             // child->release();
@@ -747,9 +765,9 @@ struct GrabberGame : Scene
             //                             0.f,1.f,0.f,
             //                             0.f,0.f,1.f,
             //                             0.f,0.f,0.f};
-         
+
             // asg::Transform trans = asg::newTransform(I);
-           
+
             // trans->translate(gb.getPositionOfPiece(gb.m_selector_index).data());
             // float tr[] = {0.f,(gb.s_squareHeight+gb.s_pieceHeight)/2.f,0.f};
             // trans->translate(tr);
@@ -762,11 +780,11 @@ struct GrabberGame : Scene
             // gb.m_selector = trans;
             // gb.m_sceneGraph->addChild(trans);
 
-            
+
            // child->release();
            rebuildANARIWorld = true;
          }
-        
+
 
     }
     virtual void beforeRenderFrame()
