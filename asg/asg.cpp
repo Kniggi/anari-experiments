@@ -2795,20 +2795,38 @@ static void visitANARIWorld(ASGVisitor self, ASGObject obj, void* userData) {
                  asg::Mat3f C = A * B;
                  if (trans->anariInstance == nullptr)
                     trans->anariInstance = anariNewInstance(anari->device);
-                anari->trans.col0 = C.col0;
-                anari->trans.col1 = C.col1;
-                anari->trans.col2 = C.col2;
-                anari->trans.col3 += asg::Vec3f{trans->matrix[ 9],
-                                         trans->matrix[10],
-                                         trans->matrix[11]};
-
-                if(( prevTrans.col2.z==1 && prevTrans.col1.y!=1 && prevTrans.col0.x!=1)){
-                      anari->trans.col3 += {trans->matrix[ 10],
-                                                trans->matrix[9],
-                                                trans->matrix[11]};
-                      anari->trans.axes=3;
+                // anari->trans.col0 = C.col0;
+                // anari->trans.col1 = C.col1;
+                // anari->trans.col2 = C.col2;
 
 
+                 asg::Mat4f currentTrans {{prevTrans.col0.x,prevTrans.col0.y,prevTrans.col0.z,0},
+                             {prevTrans.col1.x,prevTrans.col1.y,prevTrans.col1.z,0},
+                             {prevTrans.col2.x,prevTrans.col2.y,prevTrans.col2.z,0},
+                             {prevTrans.col3.x,prevTrans.col3.y,prevTrans.col3.z,1}};
+                asg::Mat4f currentRot {{trans->matrix[0],trans->matrix[1],trans->matrix[2],0},
+                             {trans->matrix[3],trans->matrix[4],trans->matrix[5],0},
+                             {trans->matrix[6],trans->matrix[7],trans->matrix[8],0},
+                             {0,0, 0,1}};
+                asg::Mat4f currentTranslation {{1,0,0,0},
+                             {0,1,0,0},
+                             {0,0,1, 0},
+                             {trans->matrix[9],trans->matrix[10],trans->matrix[11],1}};
+                     asg::Mat4f res = currentTrans*currentTranslation*currentRot;
+
+                 anari->trans.col0 = {res.col0.x,res.col0.y,res.col0.z};
+                anari->trans.col1 = {res.col1.x,res.col1.y,res.col1.z};
+                anari->trans.col2 = {res.col2.x,res.col2.y,res.col2.z};
+                anari->trans.col3 = {res.col3.x,res.col3.y,res.col3.z};
+
+                // anari->trans.col3 += asg::Vec3f{trans->matrix[ 9],
+                //                          trans->matrix[10],
+                //                          trans->matrix[11]};
+
+                // if(( prevTrans.col2.z==1 && prevTrans.col1.y!=1 && prevTrans.col0.x!=1)){
+                //       anari->trans.col3 += {trans->matrix[ 10],
+                //                                 trans->matrix[9],
+                //                                 trans->matrix[11]};
                 // }
                 // else if( (prevTrans.col2.z!=1 && prevTrans.col1.y==1 && prevTrans.col0.x!=1)){
                 //     anari->trans.col3 += asg::Vec3f{trans->matrix[ 11],
@@ -2838,11 +2856,11 @@ static void visitANARIWorld(ASGVisitor self, ASGObject obj, void* userData) {
                 //                                 trans->matrix[11],
                 //                                 trans->matrix[10]};
                 //     }
-                //     else{
-                //     anari->trans.col3 += asg::Vec3f{trans->matrix[ 9],
-                //                                 trans->matrix[10],
-                //                                 trans->matrix[11]};
-                //     }
+                    // else{
+                    // anari->trans.col3 += asg::Vec3f{trans->matrix[ 9],
+                    //                             trans->matrix[10],
+                    //                             trans->matrix[11]};
+                    // }
                 // }
 
                 asgVisitorApply(self,obj);

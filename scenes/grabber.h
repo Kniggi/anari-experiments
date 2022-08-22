@@ -393,16 +393,19 @@ struct Grabber
 
        // the part of the grabber starting with its elbow to its finger
         asg::Object from_elbow = asg::newObject();
-       asg::Transform new_trans = grabber::makeTransform(2,M_PI/2.f,0.f,s_upperArmLength/2.f+s_elbowRadius,0.f);
-        float axes[] = {0,0,1};
+        asg::Transform rot = grabber::makeRotation(2,M_PI/2.f);
+        trans = grabber::makeTransform(2,M_PI/2.f,0,s_upperArmLength/2.f+s_elbowRadius,0.f);
+
 
 
 
         asg::CylinderGeometry elbow = grabber::makeCylinder(s_elbowWidth,s_elbowRadius);
-        new_trans->addChild(asg::newSurface(elbow,dfltColor));
+        trans->addChild(asg::newSurface(elbow,dfltColor));
+
+
         // m_azimuth = grabber::makeRotation(1,m_startAzimuth);
        // trans->addChild(m_azimuth);
-        from_elbow->addChild(new_trans);
+        from_elbow->addChild(trans);
 
 
         m_azimuth_axis = 1;
@@ -415,19 +418,18 @@ struct Grabber
         // // the part of the grabber starting with its under arm to its finger
         asg::Object from_under_arm = asg::newObject();
         //Axes are inverted through the rotation, original transforms the second coordinate
-       asg::Transform rot = grabber::makeRotation(0,0);
+
 
 
         trans = asg::newTransform();
         trans->translate(0.f,s_upperArmLength/2.f+s_elbowRadius,0.f );
         //grabber::makeTransform(0,0,);
 
-        // trans = grabber::makeTransform(0,M_PI/2.f,
-        //                                 0.f,s_elbowRadius+s_underArmLength/2.f + (m_startRadialDist - s_underArmLength+s_elbowRadius+s_wristRadius)/2,0.f);
+         trans = grabber::makeTransform(0,0, 0.f,s_elbowRadius+s_underArmLength/2.f + (m_startRadialDist - s_underArmLength+s_elbowRadius+s_wristRadius)/2,0.f);
         asg::CylinderGeometry under_arm_piece = grabber::makeCylinder(
                  s_underArmLength,s_underArmRadius1);
-        rot->addChild(asg::newSurface(under_arm_piece,dfltColor));
-         trans->addChild(rot);
+        trans->addChild(asg::newSurface(under_arm_piece,dfltColor));
+
          from_under_arm->addChild(trans);
 
         from_elbow->getChild(0)->addChild(from_under_arm);
@@ -445,11 +447,13 @@ struct Grabber
 
         // the part of the grabber starting with its wrist to its finger
         asg::Object from_wrist = asg::newObject();
+        rot = grabber::makeRotation(0,M_PI/2);
         trans = grabber::makeTransform(0,0,0.f,s_underArmLength/2+s_wristRadius,  0.0f);
 
         asg::SphereGeometry wrist = grabber::makeSphere(s_wristRadius * 1.5f);
         // asg::CylinderGeometry wrist = grabber::makeCylinder(1.f,s_wristRadius * 1.5f);
-        trans->addChild(asg::newSurface(wrist,dfltColor));
+        rot->addChild(asg::newSurface(wrist,dfltColor));
+        trans->addChild(rot);
         from_wrist->addChild(trans);
         // m_azimuth->addChild(from_under_arm);
         // from_wrist->addChild(wrist);
@@ -459,12 +463,16 @@ struct Grabber
         // the part of the grabber starting with its hand to its finger
         asg::Object from_hand = asg::newObject();
         // rotation and translation are different to Soluition
-        trans = grabber::makeTransform(2, M_PI/2.f ,0.0,s_wristRadius+hand_length/2.f, 0 );
+        rot = grabber::makeRotation(2,M_PI/2);
+        trans = grabber::makeTransform(0, 0, 0.0,s_wristRadius+hand_length/2.f, 0 );
         // TODO: Cone Geometry
+
         asg::CylinderGeometry hand = grabber::makeCylinder(hand_length,s_handRadius);
+
         trans->addChild(asg::newSurface(hand,dfltColor));
-        from_hand->addChild(trans);
-        from_wrist->getChild(0)->addChild(from_hand);
+        rot->addChild(trans);
+        from_hand->addChild(rot);
+        from_wrist->getChild(0)->getChild(0)->addChild(from_hand);
 
         // the finger of the grabber
         asg::Object from_finger = asg::newObject();
@@ -477,8 +485,8 @@ struct Grabber
         trans = grabber::makeTransform(0,0,0.0, s_fingerLength/2+Gameboard::s_pieceHeight/2, 0.0);
 
         from_finger->getChild(0)->addChild(trans);
-        from_hand->getChild(0)->addChild(from_finger);
-         m_finger = from_finger;
+        from_hand->getChild(0)->getChild(0)->addChild(from_finger);
+        m_finger = from_finger;
 
 
         printSceneGraph((ASGObject)*grabber,true);
